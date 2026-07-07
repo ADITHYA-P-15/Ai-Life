@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LVL_UP | Money Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(24, 24, 27, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .emerald-glow {
+            box-shadow: 0 0 30px -5px rgba(16, 185, 129, 0.2);
+        }
+        .emerald-text-glow {
+            text-shadow: 0 0 12px rgba(16, 185, 129, 0.4);
+        }
+        .scroll-hide::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                "surface-container-high": "#2b292f",
+                "background": "#141218",
+                "outline": "#948e9c",
+                "tertiary-fixed": "#ffdf93",
+                "on-primary-fixed": "#22005d",
+                "on-tertiary": "#3e2e00",
+                "surface-tint": "#cfbcff",
+                "surface-container-lowest": "#0f0d13",
+                "error": "#ffb4ab",
+                "inverse-on-surface": "#322f35",
+                "primary-fixed-dim": "#cfbcff",
+                "surface-dim": "#141218",
+                "on-secondary-fixed-variant": "#4b4263",
+                "tertiary-container": "#c9a74d",
+                "surface-variant": "#36343a",
+                "surface-container-low": "#1d1b20",
+                "primary-container": "#6750a4",
+                "secondary-container": "#4d4465",
+                "on-error": "#690005",
+                "tertiary-fixed-dim": "#e7c365",
+                "surface-bright": "#3b383e",
+                "on-secondary-container": "#bfb2da",
+                "on-primary-container": "#e0d2ff",
+                "secondary-fixed": "#e9ddff",
+                "on-tertiary-container": "#503d00",
+                "on-surface-variant": "#cbc4d2",
+                "error-container": "#93000a",
+                "secondary": "#cdc0e9",
+                "on-secondary": "#342b4b",
+                "on-primary": "#381e72",
+                "primary-fixed": "#e9ddff",
+                "on-primary-fixed-variant": "#4f378a",
+                "on-tertiary-fixed": "#241a00",
+                "on-background": "#e6e0e9",
+                "surface-container-highest": "#36343a",
+                "on-tertiary-fixed-variant": "#594400",
+                "inverse-surface": "#e6e0e9",
+                "surface-container": "#211f24",
+                "surface": "#141218",
+                "on-secondary-fixed": "#1f1635",
+                "secondary-fixed-dim": "#cdc0e9",
+                "primary": "#cfbcff",
+                "on-surface": "#e6e0e9",
+                "inverse-primary": "#6750a4",
+                "outline-variant": "#494551",
+                "on-error-container": "#ffdad6",
+                "tertiary": "#e7c365",
+                "emerald": "#10b981"
+              },
+              "borderRadius": {
+                "DEFAULT": "1rem",
+                "lg": "2rem",
+                "xl": "3rem",
+                "full": "9999px"
+              },
+              "spacing": {
+                "container-margin": "24px",
+                "unit": "4px",
+                "stack-md": "16px",
+                "stack-lg": "32px",
+                "gutter": "16px",
+                "stack-sm": "8px"
+              },
+              "fontFamily": {
+                "headline-md": ["Plus Jakarta Sans"],
+                "display-lg": ["Plus Jakarta Sans"],
+                "label-sm": ["Plus Jakarta Sans"],
+                "body-base": ["Plus Jakarta Sans"]
+              }
+            }
+          }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-base antialiased min-h-screen">
+<!-- Sidebar Navigation -->
+<aside class="h-screen w-20 md:w-64 fixed left-0 top-0 border-r border-outline-variant/10 bg-surface-container-low/80 dark:bg-surface-container-lowest/80 backdrop-blur-xl shadow-[4px_0_24px_rgba(0,0,0,0.5)] z-50 flex flex-col py-container-margin px-4">
+<div class="mb-12 px-2 flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center shadow-[0_0_15px_rgba(207,188,255,0.4)]">
+<span class="material-symbols-outlined text-background font-bold">bolt</span>
+</div>
+<span class="hidden md:block font-display-lg text-primary tracking-tighter text-[24px]">LVL_UP</span>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-4 p-3 rounded-xl text-on-surface-variant hover:bg-surface-variant/30 hover:text-on-surface transition-all duration-300" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="hidden md:block font-label-sm text-label-sm">Hub</span>
+</a>
+<a class="flex items-center gap-4 p-3 rounded-xl text-on-surface-variant hover:bg-surface-variant/30 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">psychology</span>
+<span class="hidden md:block font-label-sm text-label-sm">Mind</span>
+</a>
+<a class="flex items-center gap-4 p-3 rounded-xl text-on-surface-variant hover:bg-surface-variant/30 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">bedtime</span>
+<span class="hidden md:block font-label-sm text-label-sm">Sleep</span>
+</a>
+<a class="flex items-center gap-4 p-3 rounded-xl text-on-surface-variant hover:bg-surface-variant/30 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="hidden md:block font-label-sm text-label-sm">Habits</span>
+</a>
+<a class="flex items-center gap-4 p-3 rounded-xl bg-primary-container/20 text-primary border-r-4 border-primary font-bold shadow-[inset_0_0_12px_rgba(207,188,255,0.2)]" href="#">
+<span class="material-symbols-outlined">savings</span>
+<span class="hidden md:block font-label-sm text-label-sm">Money</span>
+</a>
+<a class="flex items-center gap-4 p-3 rounded-xl text-on-surface-variant hover:bg-surface-variant/30 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">palette</span>
+<span class="hidden md:block font-label-sm text-label-sm">Hobbies</span>
+</a>
+</nav>
+<div class="mt-auto p-4 glass-panel rounded-2xl flex items-center gap-3">
+<img class="w-8 h-8 rounded-full border border-primary/40" data-alt="A portrait of a futuristic cyberpunk athlete with glowing digital augmentations around the eyes, set against a dark violet neon background. The art style is hyper-realistic with sharp focus and cinematic lighting, reflecting an elite-tier status in a high-performance gamified ecosystem." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcRugvb599ZS4eODSft9X9B8dmfLxTrgALCmafh6_Y0rH7UeRvSVk-Tr0zntN3Hed0KwdtYq3ju2b2n6wVSHE2KAZxDzMaTsnmiCTBKtMNCRg-MIBgpHwrFXixV11-VwNEe5LBS0_rEnA5c3nTZfnTtPGF0K7mjp-PxzZQ4L83oKp-BIzCP1lkctcXto3xYIwggltFYNP3li2fejBYFW_3szrEqm_2NxDBGvVrr2izKlVUrRav2WR7-BOniZyIRskPEFmzwHclQjtU"/>
+<div class="hidden md:block overflow-hidden">
+<p class="text-[12px] font-bold truncate">Elite Tier</p>
+<p class="text-[10px] text-on-surface-variant truncate">Rank 88</p>
+</div>
+</div>
+</aside>
+<!-- Top App Bar -->
+<header class="fixed top-0 right-0 left-20 md:left-64 z-40 h-16 flex justify-between items-center px-container-margin w-auto bg-surface/40 backdrop-blur-md border-b border-white/5">
+<div class="flex items-center gap-4">
+<h1 class="font-headline-md text-headline-md text-emerald font-black tracking-tight emerald-text-glow">Capital Hub</h1>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2 bg-emerald/10 px-4 py-1.5 rounded-full border border-emerald/20">
+<span class="material-symbols-outlined text-emerald text-[18px]" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+<span class="text-emerald font-bold font-label-sm text-label-sm">Life Score: 88</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-all duration-200">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-all duration-200">settings</button>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="ml-20 md:ml-64 pt-16 p-container-margin bg-background">
+<div class="max-w-7xl mx-auto space-y-stack-lg">
+<!-- Hero Stats Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Mascot & Main Wealth Stat -->
+<div class="md:col-span-4 glass-panel rounded-lg p-stack-lg relative overflow-hidden flex flex-col items-center justify-center text-center emerald-glow min-h-[320px]">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+
+</div>
+<img class="w-48 h-48 drop-shadow-[0_10px_20px_rgba(251,191,36,0.3)] hover:scale-110 transition-transform duration-500 ease-out z-10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCLse8WYjAwGvl_hk5oo6n3IWcGcwAvpA-wOF9fjfDl5xKjGILHiko4FRqyoVXEYiLGF-xEJkX5_BqOO8b0i6aYUR0YW9dSzPFoKI-etzqc-jNkqhwgCnRMLKo13UnqO9gY5OwA7Lnl00FViSbO_xmSrvNSmB-Tb0jUWL0DVFUggAEgAqNms-5ucA_eOPXc_sNxLJKaYErieGESyKvZNYgdz4CFxHpL5_E1LBZyrhEDaJzMyTJvOuKPBpE6hXdmRkug2LdiCkL1zSq"/>
+<div class="mt-4 z-10">
+<h2 class="text-on-surface-variant font-label-sm text-label-sm uppercase tracking-widest mb-1">Wealth Multiplier</h2>
+<div class="text-emerald font-display-lg text-[56px] font-black leading-none emerald-text-glow">1.42x</div>
+<p class="text-on-surface-variant text-[14px] mt-2">Active compounding in effect</p>
+</div>
+</div>
+<!-- Monthly Budget Visualization -->
+<div class="md:col-span-8 glass-panel rounded-lg p-stack-lg flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Capital Velocity</h3>
+<p class="text-on-surface-variant text-body-base">Monthly Budget vs. Reality</p>
+</div>
+<div class="text-right">
+<span class="text-emerald font-bold text-[24px]">$12,450.00</span>
+<p class="text-[12px] text-on-surface-variant uppercase tracking-tighter">Remaining Balance</p>
+</div>
+</div>
+<div class="mt-8 space-y-stack-md">
+<!-- Progress Bar -->
+<div class="space-y-unit">
+<div class="flex justify-between font-label-sm text-[11px] text-on-surface-variant">
+<span>TOTAL SPENT: $4,550</span>
+<span>LIMIT: $17,000</span>
+</div>
+<div class="h-6 w-full bg-surface-container-highest rounded-full overflow-hidden p-1 border border-white/5">
+<div class="h-full bg-gradient-to-r from-emerald to-primary rounded-full transition-all duration-1000 shadow-[0_0_15px_rgba(16,185,129,0.5)]" style="width: 26.7%;"></div>
+</div>
+</div>
+<!-- Mini Breakdown -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-gutter pt-4 border-t border-white/5">
+<div class="space-y-1">
+<p class="text-on-surface-variant text-[11px] uppercase">Fixed</p>
+<p class="font-bold text-on-surface">$2,800</p>
+</div>
+<div class="space-y-1">
+<p class="text-on-surface-variant text-[11px] uppercase">Variable</p>
+<p class="font-bold text-on-surface">$1,150</p>
+</div>
+<div class="space-y-1">
+<p class="text-on-surface-variant text-[11px] uppercase">Invested</p>
+<p class="font-bold text-emerald">$600</p>
+</div>
+<div class="space-y-1">
+<p class="text-on-surface-variant text-[11px] uppercase">Burn Rate</p>
+<p class="font-bold text-on-surface">$146/day</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Section: Transactions & Performance -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Data Leaks (Expenses) -->
+<div class="md:col-span-7 glass-panel rounded-lg overflow-hidden flex flex-col">
+<div class="p-container-margin border-b border-white/5 flex justify-between items-center">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">warning</span>
+<h3 class="font-headline-md text-headline-md">Top Data Leaks</h3>
+</div>
+<button class="text-primary font-label-sm text-label-sm hover:underline">View All</button>
+</div>
+<div class="divide-y divide-white/5 flex-1">
+<!-- Leak Item -->
+<div class="p-4 hover:bg-white/5 transition-colors flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center border border-white/10">
+<span class="material-symbols-outlined text-on-surface-variant">shopping_cart</span>
+</div>
+<div class="flex-1">
+<p class="font-bold text-on-surface">Amazon Prime Sub</p>
+<p class="text-[12px] text-on-surface-variant">Subscription Recurring</p>
+</div>
+<div class="text-right">
+<p class="font-bold text-error">-$14.99</p>
+<p class="text-[10px] text-on-surface-variant">2 hours ago</p>
+</div>
+</div>
+<!-- Leak Item -->
+<div class="p-4 hover:bg-white/5 transition-colors flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center border border-white/10">
+<span class="material-symbols-outlined text-on-surface-variant">fastfood</span>
+</div>
+<div class="flex-1">
+<p class="font-bold text-on-surface">UberEats - Midnight Run</p>
+<p class="text-[12px] text-on-surface-variant">Impulse Category</p>
+</div>
+<div class="text-right">
+<p class="font-bold text-error">-$42.30</p>
+<p class="text-[10px] text-on-surface-variant">Yesterday</p>
+</div>
+</div>
+<!-- Leak Item -->
+<div class="p-4 hover:bg-white/5 transition-colors flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center border border-white/10">
+<span class="material-symbols-outlined text-on-surface-variant">cloud_download</span>
+</div>
+<div class="flex-1">
+<p class="font-bold text-on-surface">Cloud Storage Overages</p>
+<p class="text-[12px] text-on-surface-variant">Technical Debt</p>
+</div>
+<div class="text-right">
+<p class="font-bold text-error">-$8.00</p>
+<p class="text-[10px] text-on-surface-variant">3 days ago</p>
+</div>
+</div>
+<!-- Leak Item -->
+<div class="p-4 hover:bg-white/5 transition-colors flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center border border-white/10">
+<span class="material-symbols-outlined text-on-surface-variant">coffee</span>
+</div>
+<div class="flex-1">
+<p class="font-bold text-on-surface">Daily Fuel (Coffee)</p>
+<p class="text-[12px] text-on-surface-variant">Lifestyle Regular</p>
+</div>
+<div class="text-right">
+<p class="font-bold text-error">-$6.50</p>
+<p class="text-[10px] text-on-surface-variant">Today</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Domain Insights (Vertical Cards) -->
+<div class="md:col-span-5 flex flex-col gap-gutter">
+<div class="glass-panel rounded-lg p-stack-md flex-1 border-t-2 border-emerald shadow-[inset_0_2px_10px_rgba(16,185,129,0.1)]">
+<div class="flex justify-between items-center mb-4">
+<h4 class="font-bold text-on-surface">Yield Strategy</h4>
+<span class="text-[10px] bg-emerald/20 text-emerald px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">Optimized</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-14 h-14 rounded-full border-4 border-surface-container-highest border-t-emerald flex items-center justify-center">
+<span class="text-[14px] font-bold">8.2%</span>
+</div>
+<div>
+<p class="text-[14px] font-bold">Compound Engine</p>
+<p class="text-[12px] text-on-surface-variant leading-tight">Projected annual growth based on current allocation.</p>
+</div>
+</div>
+</div>
+<div class="glass-panel rounded-lg p-stack-md flex-1 border-t-2 border-primary shadow-[inset_0_2px_10px_rgba(207,188,255,0.1)]">
+<div class="flex justify-between items-center mb-4">
+<h4 class="font-bold text-on-surface">Saving Velocity</h4>
+<span class="text-[10px] bg-primary/20 text-primary px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">Steady</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-14 h-14 rounded-full border-4 border-surface-container-highest border-t-primary flex items-center justify-center">
+<span class="text-[14px] font-bold">14%</span>
+</div>
+<div>
+<p class="text-[14px] font-bold">Reserve Growth</p>
+<p class="text-[12px] text-on-surface-variant leading-tight">Emergency fund is 85% full. Milestone near.</p>
+</div>
+</div>
+</div>
+<div class="glass-panel rounded-lg p-stack-md bg-emerald/5 border border-emerald/20 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-emerald" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
+<span class="font-bold text-[14px]">Level Up Invest?</span>
+</div>
+<button class="bg-emerald text-background px-4 py-1 rounded-full font-bold text-[12px] hover:scale-105 transition-transform active:scale-95">GO</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB for quick transaction -->
+<button class="fixed bottom-8 right-8 w-16 h-16 rounded-full bg-emerald text-background flex items-center justify-center shadow-[0_10px_30px_rgba(16,185,129,0.4)] hover:scale-110 active:scale-90 transition-all z-50">
+<span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'wght' 700;">add</span>
+</button>
+<script>
+        // Micro-interaction for currency updates or hover effects
+        document.querySelectorAll('.glass-panel').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,22 @@
+{
+  "name": "life-dashboard-server",
+  "version": "1.0.0",
+  "description": "Express + PostgreSQL backend for LVL_UP Life Dashboard",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch index.js",
+    "start": "node index.js",
+    "db:init": "psql -d life_dashboard -f db/schema.sql",
+    "db:seed": "psql -d life_dashboard -f db/seed.sql",
+    "db:reset": "psql -d life_dashboard -f db/schema.sql && psql -d life_dashboard -f db/seed.sql"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.16.0"
+  }
+}

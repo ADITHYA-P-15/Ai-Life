@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mind &amp; Mood | LVL_UP</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "surface-container-high": "#2b292f",
+                "background": "#141218",
+                "outline": "#948e9c",
+                "tertiary-fixed": "#ffdf93",
+                "on-primary-fixed": "#22005d",
+                "on-tertiary": "#3e2e00",
+                "surface-tint": "#cfbcff",
+                "surface-container-lowest": "#0f0d13",
+                "error": "#ffb4ab",
+                "inverse-on-surface": "#322f35",
+                "primary-fixed-dim": "#cfbcff",
+                "surface-dim": "#141218",
+                "on-secondary-fixed-variant": "#4b4263",
+                "tertiary-container": "#c9a74d",
+                "surface-variant": "#36343a",
+                "surface-container-low": "#1d1b20",
+                "primary-container": "#6750a4",
+                "secondary-container": "#4d4465",
+                "on-error": "#690005",
+                "tertiary-fixed-dim": "#e7c365",
+                "surface-bright": "#3b383e",
+                "on-secondary-container": "#bfb2da",
+                "on-primary-container": "#e0d2ff",
+                "secondary-fixed": "#e9ddff",
+                "on-tertiary-container": "#503d00",
+                "on-surface-variant": "#cbc4d2",
+                "error-container": "#93000a",
+                "secondary": "#cdc0e9",
+                "on-secondary": "#342b4b",
+                "on-primary": "#381e72",
+                "primary-fixed": "#e9ddff",
+                "on-primary-fixed-variant": "#4f378a",
+                "on-tertiary-fixed": "#241a00",
+                "on-background": "#e6e0e9",
+                "surface-container-highest": "#36343a",
+                "on-tertiary-fixed-variant": "#594400",
+                "inverse-surface": "#e6e0e9",
+                "surface-container": "#211f24",
+                "surface": "#141218",
+                "on-secondary-fixed": "#1f1635",
+                "secondary-fixed-dim": "#cdc0e9",
+                "primary": "#cfbcff",
+                "on-surface": "#e6e0e9",
+                "inverse-primary": "#6750a4",
+                "outline-variant": "#494551",
+                "on-error-container": "#ffdad6",
+                "tertiary": "#e7c365",
+                "electric-blue": "#00E5FF"
+            },
+            "borderRadius": {
+                "DEFAULT": "1rem",
+                "lg": "2rem",
+                "xl": "3rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "container-margin": "24px",
+                "unit": "4px",
+                "stack-md": "16px",
+                "stack-lg": "32px",
+                "gutter": "16px",
+                "stack-sm": "8px"
+            },
+            "fontFamily": {
+                "headline-md": ["Plus Jakarta Sans"],
+                "display-lg": ["Plus Jakarta Sans"],
+                "label-sm": ["Plus Jakarta Sans"],
+                "body-base": ["Plus Jakarta Sans"],
+                "display-lg-mobile": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                "body-base": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "display-lg-mobile": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #09090B;
+            color: #e6e0e9;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .glass-card {
+            background: rgba(24, 24, 27, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(0, 229, 255, 0.3);
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.1);
+        }
+
+        .electric-glow {
+            filter: drop-shadow(0 0 15px rgba(0, 229, 255, 0.4));
+        }
+
+        .chart-gradient {
+            background: linear-gradient(to top, rgba(0, 229, 255, 0) 0%, rgba(0, 229, 255, 0.2) 100%);
+        }
+
+        .calibration-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            background: #00E5FF;
+            cursor: pointer;
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.8);
+        }
+
+        .progress-ring {
+            transform: rotate(-90deg);
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .floating-mascot {
+            animation: float 4s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="antialiased">
+<!-- Side Navigation Rail -->
+<nav class="h-screen w-20 md:w-64 fixed left-0 top-0 border-r border-outline-variant/10 bg-surface-container-low/80 dark:bg-surface-container-lowest/80 backdrop-blur-xl z-50 flex flex-col py-container-margin px-4 shadow-[4px_0_24px_rgba(0,0,0,0.5)]">
+<div class="mb-10 px-2">
+<h1 class="font-display-lg text-primary tracking-tighter drop-shadow-[0_0_15px_rgba(207,188,255,0.4)] text-2xl md:text-3xl">LVL_UP</h1>
+<p class="font-label-sm text-label-sm text-outline uppercase tracking-widest mt-1 hidden md:block">Elite Tier</p>
+</div>
+<div class="flex-1 space-y-2">
+<!-- Hub -->
+<a class="flex items-center gap-4 p-3 rounded-lg text-on-surface-variant hover:bg-surface-variant/30 hover:backdrop-blur-md transition-all duration-300" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="hidden md:block font-label-sm text-label-sm">Hub</span>
+</a>
+<!-- Mind (Active) -->
+<a class="flex items-center gap-4 p-3 rounded-lg bg-primary-container/20 text-primary border-r-4 border-primary font-bold shadow-[inset_0_0_12px_rgba(207,188,255,0.2)]" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="hidden md:block font-label-sm text-label-sm">Mind</span>
+</a>
+<!-- Others -->
+<a class="flex items-center gap-4 p-3 rounded-lg text-on-surface-variant hover:bg-surface-variant/30 hover:backdrop-blur-md transition-all duration-300" href="#">
+<span class="material-symbols-outlined">bedtime</span>
+<span class="hidden md:block font-label-sm text-label-sm">Sleep</span>
+</a>
+<a class="flex items-center gap-4 p-3 rounded-lg text-on-surface-variant hover:bg-surface-variant/30 hover:backdrop-blur-md transition-all duration-300" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="hidden md:block font-label-sm text-label-sm">Habits</span>
+</a>
+<a class="flex items-center gap-4 p-3 rounded-lg text-on-surface-variant hover:bg-surface-variant/30 hover:backdrop-blur-md transition-all duration-300" href="#">
+<span class="material-symbols-outlined">savings</span>
+<span class="hidden md:block font-label-sm text-label-sm">Money</span>
+</a>
+<a class="flex items-center gap-4 p-3 rounded-lg text-on-surface-variant hover:bg-surface-variant/30 hover:backdrop-blur-md transition-all duration-300" href="#">
+<span class="material-symbols-outlined">palette</span>
+<span class="hidden md:block font-label-sm text-label-sm">Hobbies</span>
+</a>
+</div>
+<div class="mt-auto pt-4 border-t border-outline-variant/10 flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden border border-primary/30">
+<img class="w-full h-full object-cover" data-alt="A futuristic portrait of a high-performance athlete in a neon-lit cyberpunk training facility, wearing sleek biometric sensors and a chrome headset. The lighting is dominated by deep purples and electric blues, creating a focused and high-tech atmosphere. Cinematic composition, shallow depth of field, 8k resolution." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0WD8PU1w6qotdBlM-NKzPUbS_A-7Ipql_NS1Ip67DTG-tch9sDnSZssLV3OHPjfsaCi-bR_0AsbbyJ60wRBKe-SGJw2Y1zYDpiWx8fuK3sbvn-oNooUj0p6JKS0CXKiUt6RV1BX5ws74MMoYzZFac_3kFRkykSQ4thiHr6zKiYnSseq-4XtDniALQjv92ZHmhrQPi5Yj7mmauOYXVlU7pJGC41stwPAJfJrErU5-bQBRZ77V0FuKfnJXUv18cdiz7nEcvkt4DFjtw"/>
+</div>
+<div class="hidden md:block">
+<p class="font-label-sm text-label-sm text-on-surface">Player_One</p>
+<p class="text-[10px] text-outline">LVL 42 Master</p>
+</div>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="ml-20 md:ml-64 min-h-screen pt-16 pb-container-margin px-container-margin">
+<!-- Top App Bar Content -->
+<header class="fixed top-0 right-0 left-20 md:left-64 z-40 h-16 bg-transparent backdrop-blur-md flex justify-between items-center px-container-margin border-b border-white/5">
+<h2 class="font-headline-md text-headline-md text-primary font-black">Neural Dashboard</h2>
+<div class="flex items-center gap-6">
+<div class="hidden sm:flex items-center gap-2 bg-surface-container/40 px-4 py-1.5 rounded-full border border-outline-variant/20">
+<span class="material-symbols-outlined text-electric-blue text-sm">bolt</span>
+<span class="font-label-sm text-label-sm">Life Score: 88</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-all duration-200">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-all duration-200">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Bento Grid Layout -->
+<div class="mt-8 grid grid-cols-12 gap-gutter">
+<!-- Hero Mascot Section -->
+<div class="col-span-12 lg:col-span-4 flex flex-col gap-gutter">
+<div class="glass-card rounded-lg p-stack-lg relative overflow-hidden flex flex-col items-center justify-center min-h-[400px]">
+<div class="absolute inset-0 opacity-20 pointer-events-none">
+
+</div>
+<div class="floating-mascot relative z-10 w-48 h-48 mb-6">
+<img class="w-full h-full object-contain electric-glow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCLse8WYjAwGvl_hk5oo6n3IWcGcwAvpA-wOF9fjfDl5xKjGILHiko4FRqyoVXEYiLGF-xEJkX5_BqOO8b0i6aYUR0YW9dSzPFoKI-etzqc-jNkqhwgCnRMLKo13UnqO9gY5OwA7Lnl00FViSbO_xmSrvNSmB-Tb0jUWL0DVFUggAEgAqNms-5ucA_eOPXc_sNxLJKaYErieGESyKvZNYgdz4CFxHpL5_E1LBZyrhEDaJzMyTJvOuKPBpE6hXdmRkug2LdiCkL1zSq"/>
+</div>
+<div class="text-center relative z-10">
+<h3 class="font-headline-md text-headline-md text-electric-blue mb-2">Neural Status: Prime</h3>
+<p class="text-on-surface-variant text-sm">Your cognitive resonance is currently operating at peak efficiency. Optimized for creative tasks.</p>
+</div>
+</div>
+<!-- Cognitive Load Gauge -->
+<div class="glass-card rounded-lg p-stack-lg flex items-center justify-between">
+<div>
+<h4 class="font-label-sm text-label-sm text-outline uppercase mb-1">Cognitive Load</h4>
+<div class="text-3xl font-bold text-on-surface">34<span class="text-electric-blue">%</span></div>
+<p class="text-xs text-on-surface-variant mt-2">Optimal processing window open.</p>
+</div>
+<div class="relative w-24 h-24">
+<svg class="w-full h-full progress-ring" viewbox="0 0 100 100">
+<circle cx="50" cy="50" fill="transparent" r="45" stroke="rgba(255,255,255,0.05)" stroke-width="8"></circle>
+<circle class="electric-glow" cx="50" cy="50" fill="transparent" r="45" stroke="#00E5FF" stroke-dasharray="283" stroke-dashoffset="186" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-electric-blue">memory</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Mood Trends & entry -->
+<div class="col-span-12 lg:col-span-8 flex flex-col gap-gutter">
+<!-- Mood Trend Chart -->
+<div class="glass-card rounded-lg p-stack-lg flex-1">
+<div class="flex justify-between items-center mb-8">
+<div>
+<h4 class="font-headline-md text-headline-md">Mood Stability</h4>
+<p class="text-on-surface-variant text-sm">7-day emotional resonance trend</p>
+</div>
+<div class="flex gap-2">
+<span class="px-3 py-1 rounded-full bg-electric-blue/10 border border-electric-blue/30 text-electric-blue text-[10px] font-bold uppercase tracking-tighter">+4.2% Stability</span>
+</div>
+</div>
+<div class="h-48 w-full relative">
+<!-- Simulated Chart -->
+<div class="absolute inset-0 flex items-end justify-between px-2">
+<div class="w-12 bg-electric-blue/20 rounded-t-lg transition-all hover:bg-electric-blue/40" style="height: 60%"></div>
+<div class="w-12 bg-electric-blue/20 rounded-t-lg transition-all hover:bg-electric-blue/40" style="height: 45%"></div>
+<div class="w-12 bg-electric-blue/20 rounded-t-lg transition-all hover:bg-electric-blue/40" style="height: 75%"></div>
+<div class="w-12 bg-electric-blue/40 rounded-t-lg transition-all hover:bg-electric-blue/60" style="height: 90%"></div>
+<div class="w-12 bg-electric-blue/20 rounded-t-lg transition-all hover:bg-electric-blue/40" style="height: 65%"></div>
+<div class="w-12 bg-electric-blue/30 rounded-t-lg transition-all hover:bg-electric-blue/50" style="height: 55%"></div>
+<div class="w-12 bg-electric-blue shadow-[0_0_20px_rgba(0,229,255,0.4)] rounded-t-lg" style="height: 85%"></div>
+</div>
+<!-- Grid Lines -->
+<div class="absolute inset-0 border-b border-outline-variant/20 flex flex-col justify-between pointer-events-none">
+<div class="border-t border-outline-variant/10 w-full h-0"></div>
+<div class="border-t border-outline-variant/10 w-full h-0"></div>
+<div class="border-t border-outline-variant/10 w-full h-0"></div>
+</div>
+</div>
+<div class="flex justify-between mt-4 px-2 text-[10px] text-outline font-bold uppercase">
+<span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+</div>
+</div>
+<!-- Daily Calibration Section -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter h-full">
+<!-- Today's Mood Entry -->
+<div class="glass-card rounded-lg p-stack-lg">
+<h4 class="font-label-sm text-label-sm text-outline uppercase mb-4">Current Emotional State</h4>
+<div class="grid grid-cols-5 gap-2">
+<button class="aspect-square flex items-center justify-center rounded-xl bg-surface-variant/20 hover:bg-electric-blue/20 hover:border-electric-blue transition-all border border-white/5">
+<span class="text-2xl">⚡️</span>
+</button>
+<button class="aspect-square flex items-center justify-center rounded-xl bg-surface-variant/20 hover:bg-electric-blue/20 hover:border-electric-blue transition-all border border-white/5">
+<span class="text-2xl">😊</span>
+</button>
+<button class="aspect-square flex items-center justify-center rounded-xl bg-electric-blue/20 border-electric-blue shadow-[0_0_15px_rgba(0,229,255,0.2)] border transition-all">
+<span class="text-2xl">🧘‍♂️</span>
+</button>
+<button class="aspect-square flex items-center justify-center rounded-xl bg-surface-variant/20 hover:bg-electric-blue/20 hover:border-electric-blue transition-all border border-white/5">
+<span class="text-2xl">🤔</span>
+</button>
+<button class="aspect-square flex items-center justify-center rounded-xl bg-surface-variant/20 hover:bg-electric-blue/20 hover:border-electric-blue transition-all border border-white/5">
+<span class="text-2xl">😴</span>
+</button>
+<button class="aspect-square flex items-center justify-center rounded-xl bg-surface-variant/20 hover:bg-electric-blue/20 hover:border-electric-blue transition-all border border-white/5">
+<span class="text-2xl">🔥</span>
+</button>
+<button class="aspect-square flex items-center justify-center rounded-xl bg-surface-variant/20 hover:bg-electric-blue/20 hover:border-electric-blue transition-all border border-white/5">
+<span class="text-2xl">🎨</span>
+</button>
+<button class="aspect-square flex items-center justify-center rounded-xl bg-surface-variant/20 hover:bg-electric-blue/20 hover:border-electric-blue transition-all border border-white/5">
+<span class="text-2xl">🎯</span>
+</button>
+<button class="aspect-square flex items-center justify-center rounded-xl bg-surface-variant/20 hover:bg-electric-blue/20 hover:border-electric-blue transition-all border border-white/5">
+<span class="text-2xl">📚</span>
+</button>
+<button class="aspect-square flex items-center justify-center rounded-xl bg-surface-variant/20 hover:bg-electric-blue/20 hover:border-electric-blue transition-all border border-white/5">
+<span class="text-2xl">🌊</span>
+</button>
+</div>
+</div>
+<!-- Neural Calibration Slider -->
+<div class="glass-card rounded-lg p-stack-lg flex flex-col justify-between">
+<div>
+<h4 class="font-label-sm text-label-sm text-outline uppercase mb-2">Neural Calibration</h4>
+<p class="text-xs text-on-surface-variant mb-6">Manually tune your focus intensity.</p>
+</div>
+<div class="space-y-6">
+<div class="relative pt-1">
+<input class="calibration-slider w-full h-2 bg-surface-variant/40 rounded-lg appearance-none cursor-pointer" max="100" min="0" type="range" value="75"/>
+<div class="flex justify-between text-[10px] text-outline mt-3 font-bold">
+<span>ZEN</span>
+<span>FLOW</span>
+<span>OVERDRIVE</span>
+</div>
+</div>
+<button class="w-full py-3 bg-electric-blue text-background font-bold rounded-lg hover:brightness-110 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">bolt</span>
+                                SYNC NEURAL LINK
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Cognitive Exercises Grid -->
+<div class="col-span-12 mt-4">
+<h3 class="font-headline-md text-headline-md mb-6">Brain Optimization Tasks</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-gutter">
+<!-- Exercise Card 1 -->
+<div class="glass-card rounded-lg p-5 flex flex-col gap-4">
+<div class="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-blue-400">visibility</span>
+</div>
+<div>
+<h5 class="font-bold text-on-surface">Spatial Awareness</h5>
+<p class="text-xs text-outline">High-speed pattern recognition</p>
+</div>
+<div class="flex items-center justify-between mt-2">
+<span class="text-[10px] bg-white/5 px-2 py-1 rounded">5 min</span>
+<button class="text-electric-blue text-xs font-bold flex items-center gap-1 hover:underline">
+                                START <span class="material-symbols-outlined text-xs">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Exercise Card 2 -->
+<div class="glass-card rounded-lg p-5 flex flex-col gap-4">
+<div class="w-10 h-10 rounded-lg bg-purple-500/10 border border-purple-500/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-purple-400">translate</span>
+</div>
+<div>
+<h5 class="font-bold text-on-surface">Semantic Recall</h5>
+<p class="text-xs text-outline">Lexical retrieval training</p>
+</div>
+<div class="flex items-center justify-between mt-2">
+<span class="text-[10px] bg-white/5 px-2 py-1 rounded">8 min</span>
+<button class="text-electric-blue text-xs font-bold flex items-center gap-1 hover:underline">
+                                START <span class="material-symbols-outlined text-xs">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Exercise Card 3 -->
+<div class="glass-card rounded-lg p-5 flex flex-col gap-4">
+<div class="w-10 h-10 rounded-lg bg-green-500/10 border border-green-500/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-green-400">timer</span>
+</div>
+<div>
+<h5 class="font-bold text-on-surface">Precision Timing</h5>
+<p class="text-xs text-outline">Neural response delay test</p>
+</div>
+<div class="flex items-center justify-between mt-2">
+<span class="text-[10px] bg-white/5 px-2 py-1 rounded">3 min</span>
+<button class="text-electric-blue text-xs font-bold flex items-center gap-1 hover:underline">
+                                START <span class="material-symbols-outlined text-xs">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Exercise Card 4 -->
+<div class="glass-card rounded-lg p-5 flex flex-col gap-4 border-dashed border-outline/20 bg-transparent">
+<div class="w-full h-full flex flex-col items-center justify-center text-center py-4">
+<span class="material-symbols-outlined text-outline mb-2">add_circle</span>
+<p class="text-xs text-outline">Unlock Daily<br/>Deep-Dive Challenge</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Domain Switcher (Floating Bottom Nav for Mobile) -->
+<div class="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 glass-card rounded-full px-6 py-4 flex items-center gap-8 shadow-2xl z-50 border-white/20">
+<button class="text-on-surface-variant hover:text-electric-blue transition-colors">
+<span class="material-symbols-outlined">grid_view</span>
+</button>
+<button class="text-electric-blue scale-125 drop-shadow-[0_0_10px_rgba(0,229,255,0.5)]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">psychology</span>
+</button>
+<button class="text-on-surface-variant hover:text-electric-blue transition-colors">
+<span class="material-symbols-outlined">bedtime</span>
+</button>
+<button class="text-on-surface-variant hover:text-electric-blue transition-colors">
+<span class="material-symbols-outlined">verified_user</span>
+</button>
+<button class="text-on-surface-variant hover:text-electric-blue transition-colors">
+<span class="material-symbols-outlined">savings</span>
+</button>
+</div>
+<script>
+        // Simple micro-interaction for the slider
+        const slider = document.querySelector('.calibration-slider');
+        slider?.addEventListener('input', (e) => {
+            const val = e.target.value;
+            // Potentially update some UI elements based on slider value
+            if (val > 80) {
+                document.querySelector('.floating-mascot img').classList.add('animate-pulse');
+            } else {
+                document.querySelector('.floating-mascot img').classList.remove('animate-pulse');
+            }
+        });
+
+        // Add small hover effects to icons
+        document.querySelectorAll('.material-symbols-outlined').forEach(icon => {
+            icon.addEventListener('mouseenter', () => {
+                icon.style.transform = 'scale(1.1)';
+                icon.style.transition = 'transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1)';
+            });
+            icon.addEventListener('mouseleave', () => {
+                icon.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body></html>

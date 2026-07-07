@@ -1,0 +1,20 @@
+{
+  "name": "LVL_UP Life Dashboard",
+  "short_name": "LVL_UP",
+  "description": "Track mood, sleep, habits, money, hobbies, and AI insights.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#09090B",
+  "theme_color": "#09090B",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["productivity", "health", "lifestyle"]
+}

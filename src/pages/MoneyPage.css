@@ -1,0 +1,75 @@
+/* MoneyPage.css */
+.money { display: flex; flex-direction: column; gap: var(--stack-lg); }
+
+.money__hero { display: grid; grid-template-columns: 1fr 2fr; gap: var(--gutter); }
+.money__wealth-card { padding: var(--stack-lg); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden; min-height: 320px; gap: 8px; }
+.money__wealth-card.domain-glow-money { box-shadow: 0 0 34px -8px rgba(245,200,75,0.28); }
+.money__wealth-bg { position: absolute; inset: 0; background: radial-gradient(circle at 50% 78%, rgba(245,200,75,0.12), transparent 68%), radial-gradient(circle at 18% 12%, rgba(207,188,255,0.08), transparent 40%); pointer-events: none; }
+.money__wealth-label { color: var(--outline); margin-top: 16px; letter-spacing: 0.1em; }
+.money__wealth-amount { font-size: 48px; font-weight: 900; color: var(--domain-money); text-shadow: 0 0 14px rgba(245,200,75,0.42); margin: 8px 0; }
+.money__wealth-sub { font-size: 13px; color: var(--on-surface-variant); }
+
+.money__velocity-card { padding: var(--stack-lg); display: flex; flex-direction: column; justify-content: space-between; }
+.money__velocity-header { display: flex; justify-content: space-between; align-items: flex-start; }
+.money__velocity-title { font-size: 20px; font-weight: 700; color: white; }
+.money__velocity-sub { font-size: 13px; color: var(--on-surface-variant); }
+.money__remaining-amount { font-size: 24px; font-weight: 900; color: var(--domain-money); }
+.money__remaining-label { font-size: 11px; color: var(--outline); text-transform: uppercase; text-align: right; }
+.money__budget-bar-outer { margin-top: 24px; }
+.money__budget-labels { display: flex; justify-content: space-between; font-size: 10px; font-weight: 700; color: var(--on-surface-variant); text-transform: uppercase; margin-bottom: 8px; }
+.money__budget-bar-track { height: 20px; background: rgba(255,255,255,0.055); border-radius: var(--radius-full); overflow: hidden; padding: 4px; border: 1px solid rgba(255,255,255,0.08); box-shadow: inset 0 1px 6px rgba(0,0,0,0.22); }
+.money__budget-bar-fill { height: 100%; border-radius: var(--radius-full); transition: width 1s ease; box-shadow: 0 0 15px rgba(245,200,75,0.48); }
+.money__budget-status { font-size: 12px; font-weight: 700; color: var(--domain-money); margin-top: 8px; }
+
+.money__bottom { display: grid; grid-template-columns: 7fr 5fr; gap: var(--gutter); }
+.money__leaks { padding: 24px; display: flex; flex-direction: column; }
+.money__leaks-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+.money__leaks-title { display: flex; align-items: center; gap: 8px; font-size: 18px; font-weight: 700; color: white; }
+
+.money__add-form { display: grid; grid-template-columns: 108px minmax(132px, 0.95fr) minmax(150px, 1.2fr) auto; gap: 8px; margin-bottom: 16px; align-items: stretch; }
+.money__amount-wrap { display: flex; align-items: center; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius); overflow: hidden; transition: border-color 0.2s, box-shadow 0.2s; }
+.money__amount-wrap:focus-within { border-color: rgba(245,200,75,0.55); box-shadow: 0 0 0 3px rgba(245,200,75,0.12); }
+.money__currency { padding: 0 12px; font-weight: 700; color: var(--on-surface-variant); }
+.money__amount-input { border: none; background: transparent; padding: 10px 12px 10px 0; width: 100%; min-width: 0; color: var(--on-surface); font-family: inherit; font-size: 14px; outline: none; }
+.money__category-select { padding: 10px 34px 10px 12px; font-size: 13px; min-width: 0; }
+.money__label-input { min-width: 0; }
+.money__add-btn { background: var(--domain-money); color: #1c1304; padding: 10px 20px; font-size: 11px; box-shadow: 0 4px 18px rgba(245,200,75,0.28); }
+
+.money__confirm { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 18px; padding: 14px; border-radius: var(--radius); border: 1px solid rgba(245,200,75,0.18); background: rgba(245,200,75,0.07); }
+.money__confirm p { color: white; font-size: 13px; font-weight: 800; }
+.money__confirm span { display: block; margin-top: 3px; color: var(--on-surface-variant); font-size: 12px; }
+.money__confirm-actions { display: flex; gap: 8px; flex-shrink: 0; }
+.money__confirm-actions button { min-height: 34px; padding: 0 12px; border-radius: var(--radius); font-size: 11px; font-weight: 900; cursor: pointer; }
+.money__confirm-actions button:first-child { border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); color: var(--on-surface); }
+.money__confirm-actions button:last-child { border: 0; background: var(--domain-money); color: #000; }
+
+.money__leak-list { display: flex; flex-direction: column; flex: 1; }
+.money__empty { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px; color: var(--outline); font-size: 13px; text-align: center; flex: 1; }
+.money__leak-item { display: flex; align-items: center; gap: 16px; padding: 16px; border-bottom: 1px solid rgba(255,255,255,0.05); transition: background 0.2s, border-color 0.2s; }
+.money__leak-item:hover { background: rgba(255,255,255,0.035); border-color: rgba(245,200,75,0.12); }
+.money__leak-icon { width: 48px; height: 48px; border-radius: var(--radius); background: linear-gradient(145deg, rgba(245,200,75,0.13), rgba(255,255,255,0.04)); border: 1px solid rgba(245,200,75,0.14); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+.money__leak-info { flex: 1; }
+.money__leak-name { font-size: 14px; font-weight: 700; color: white; }
+.money__leak-cat { font-size: 11px; color: var(--on-surface-variant); margin-top: 2px; }
+.money__leak-right { display: flex; align-items: center; gap: 8px; }
+.money__leak-amount { font-size: 14px; font-weight: 700; color: var(--error); }
+.money__leak-delete { display: flex; background: none; border: none; color: var(--outline); cursor: pointer; opacity: 0; transition: opacity 0.2s; padding: 4px; }
+.money__leak-item:hover .money__leak-delete { opacity: 1; }
+.money__leak-delete:hover { color: var(--error); }
+
+.money__insights { display: flex; flex-direction: column; gap: var(--gutter); }
+.money__insight-card { padding: 20px; }
+.money__insight-card--primary { border-top: 2px solid var(--domain-money); box-shadow: inset 0 2px 10px rgba(245,200,75,0.1); }
+.money__insight-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+.money__insight-header h4 { font-size: 14px; font-weight: 700; color: white; }
+.money__insight-desc { font-size: 12px; color: var(--on-surface-variant); line-height: 1.6; }
+.money__cta-card { padding: 16px; display: flex; align-items: center; justify-content: space-between; background: linear-gradient(135deg, rgba(245,200,75,0.09), rgba(207,188,255,0.035)); border: 1px solid rgba(245,200,75,0.22); }
+.money__cta-left { display: flex; align-items: center; gap: 12px; }
+.money__cta-text { font-size: 14px; font-weight: 700; color: white; }
+.money__cta-go { background: var(--domain-money); color: #1c1304; border: none; padding: 6px 20px; border-radius: var(--radius-full); font-weight: 700; font-size: 12px; cursor: pointer; transition: transform 0.15s, box-shadow 0.2s; font-family: inherit; box-shadow: 0 6px 18px rgba(245,200,75,0.24); }
+.money__cta-go:hover { transform: scale(1.05); }
+.money__cta-go:active { transform: scale(0.95); }
+
+@media (max-width: 1024px) { .money__hero { grid-template-columns: 1fr; } .money__bottom { grid-template-columns: 1fr; } }
+@media (max-width: 768px) { .money__add-form { grid-template-columns: 1fr 1fr; } .money__label-input { grid-column: 1 / -1; } }
+@media (max-width: 520px) { .money__add-form { grid-template-columns: 1fr; } .money__label-input { grid-column: auto; } .money__confirm { align-items: stretch; flex-direction: column; } }

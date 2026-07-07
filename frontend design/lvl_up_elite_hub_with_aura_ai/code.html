@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LVL_UP | Elite Tier Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#2b292f",
+                        "background": "#141218",
+                        "outline": "#948e9c",
+                        "tertiary-fixed": "#ffdf93",
+                        "on-primary-fixed": "#22005d",
+                        "on-tertiary": "#3e2e00",
+                        "surface-tint": "#cfbcff",
+                        "surface-container-lowest": "#0f0d13",
+                        "error": "#ffb4ab",
+                        "inverse-on-surface": "#322f35",
+                        "primary-fixed-dim": "#cfbcff",
+                        "surface-dim": "#141218",
+                        "on-secondary-fixed-variant": "#4b4263",
+                        "tertiary-container": "#c9a74d",
+                        "surface-variant": "#36343a",
+                        "surface-container-low": "#1d1b20",
+                        "primary-container": "#6750a4",
+                        "secondary-container": "#4d4465",
+                        "on-error": "#690005",
+                        "tertiary-fixed-dim": "#e7c365",
+                        "surface-bright": "#3b383e",
+                        "on-secondary-container": "#bfb2da",
+                        "on-primary-container": "#e0d2ff",
+                        "secondary-fixed": "#e9ddff",
+                        "on-tertiary-container": "#503d00",
+                        "on-surface-variant": "#cbc4d2",
+                        "error-container": "#93000a",
+                        "secondary": "#cdc0e9",
+                        "on-secondary": "#342b4b",
+                        "on-primary": "#381e72",
+                        "primary-fixed": "#e9ddff",
+                        "on-primary-fixed-variant": "#4f378a",
+                        "on-tertiary-fixed": "#241a00",
+                        "on-background": "#e6e0e9",
+                        "surface-container-highest": "#36343a",
+                        "on-tertiary-fixed-variant": "#594400",
+                        "inverse-surface": "#e6e0e9",
+                        "surface-container": "#211f24",
+                        "surface": "#141218",
+                        "on-secondary-fixed": "#1f1635",
+                        "secondary-fixed-dim": "#cdc0e9",
+                        "primary": "#cfbcff",
+                        "on-surface": "#e6e0e9",
+                        "inverse-primary": "#6750a4",
+                        "outline-variant": "#494551",
+                        "on-error-container": "#ffdad6",
+                        "tertiary": "#e7c365"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-margin": "24px",
+                        "unit": "4px",
+                        "stack-md": "16px",
+                        "stack-lg": "32px",
+                        "gutter": "16px",
+                        "stack-sm": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "body-base": ["Plus Jakarta Sans"],
+                        "display-lg-mobile": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-base": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #09090B;
+            overflow-x: hidden;
+        }
+
+        .glass-card {
+            background: rgba(24, 24, 27, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            border: 1px solid rgba(207, 188, 255, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .progress-ring-circle {
+            transition: stroke-dashoffset 0.85s ease-in-out;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+
+        .domain-glow-blue { box-shadow: 0 0 25px -5px rgba(56, 189, 248, 0.3); border-top: 3px solid #38bdf8; }
+        .domain-glow-purple { box-shadow: 0 0 25px -5px rgba(167, 139, 250, 0.3); border-top: 3px solid #a78bfa; }
+        .domain-glow-emerald { box-shadow: 0 0 25px -5px rgba(52, 211, 153, 0.3); border-top: 3px solid #34d399; }
+        .domain-glow-magenta { box-shadow: 0 0 25px -5px rgba(244, 114, 182, 0.3); border-top: 3px solid #f472b6; }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .life-score-glow {
+            filter: drop-shadow(0 0 12px #cfbcff);
+        }
+    </style>
+</head>
+<body class="text-on-surface">
+<!-- Global Background Elements -->
+<div class="fixed inset-0 pointer-events-none z-[-1] overflow-hidden">
+<div class="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-primary/10 blur-[120px] rounded-full"></div>
+<div class="absolute bottom-[-5%] left-[-5%] w-[40%] h-[40%] bg-tertiary/10 blur-[100px] rounded-full"></div>
+</div>
+<!-- Side Navigation Shell -->
+<aside class="h-screen w-20 md:w-64 fixed left-0 top-0 border-r border-outline-variant/10 bg-surface-container-low/80 dark:bg-surface-container-lowest/80 backdrop-blur-xl shadow-[4px_0_24px_rgba(0,0,0,0.5)] flex flex-col py-6 px-4 z-50">
+<div class="mb-10 px-2 flex items-center gap-3">
+<div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(207,188,255,0.4)]">
+<span class="material-symbols-outlined text-on-primary-container" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+<span class="hidden md:block font-display-lg text-primary tracking-tighter text-2xl">LVL_UP</span>
+</div>
+<nav class="flex-1 space-y-2">
+<!-- Hub (Active) -->
+<a class="flex items-center gap-4 px-4 py-3 rounded-xl bg-primary-container/20 text-primary border-r-4 border-primary font-bold shadow-[inset_0_0_12px_rgba(207,188,255,0.2)] transition-all duration-200" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="hidden md:block font-label-sm text-sm uppercase">Hub</span>
+</a>
+<!-- Mind -->
+<a class="flex items-center gap-4 px-4 py-3 rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-surface-variant/30 hover:backdrop-blur-md transition-all duration-300" href="#">
+<span class="material-symbols-outlined">psychology</span>
+<span class="hidden md:block font-label-sm text-sm uppercase">Mind</span>
+</a>
+<!-- Sleep -->
+<a class="flex items-center gap-4 px-4 py-3 rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-surface-variant/30 hover:backdrop-blur-md transition-all duration-300" href="#">
+<span class="material-symbols-outlined">bedtime</span>
+<span class="hidden md:block font-label-sm text-sm uppercase">Sleep</span>
+</a>
+<!-- Habits -->
+<a class="flex items-center gap-4 px-4 py-3 rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-surface-variant/30 hover:backdrop-blur-md transition-all duration-300" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="hidden md:block font-label-sm text-sm uppercase">Habits</span>
+</a>
+<!-- Money -->
+<a class="flex items-center gap-4 px-4 py-3 rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-surface-variant/30 hover:backdrop-blur-md transition-all duration-300" href="#">
+<span class="material-symbols-outlined">savings</span>
+<span class="hidden md:block font-label-sm text-sm uppercase">Money</span>
+</a>
+<!-- Hobbies -->
+<a class="flex items-center gap-4 px-4 py-3 rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-surface-variant/30 hover:backdrop-blur-md transition-all duration-300" href="#">
+<span class="material-symbols-outlined">palette</span>
+<span class="hidden md:block font-label-sm text-sm uppercase">Hobbies</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-outline-variant/10 px-2 space-y-4">
+<div class="flex items-center gap-3 px-2">
+<div class="w-10 h-10 rounded-full border-2 border-primary overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A futuristic professional portrait of a tech-savvy high performer, cinematic lighting with subtle purple rim light, digital nomad vibe, ultra-detailed textures, 8k resolution." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2Kng8BED3DjWJPqZfPUWbaaFZz7QY7xWYl5vMmMj40Pzpw4GeLmMDj3YrN3CKDD-14sgYE6zth4enwykOomlf5q0c5oJc1kbp3D_TcJS3LJPHq7rcWzSn5lkA6GgSMiuDMEmHKWu-NldXG3Bqzgp5pPNyklcLyQ-qffQXO6xFcwUszyVY59ClMGLiYJF1M8zpWASzAWA5FXnGxTrBV-fILXcUPFWwPNEjDWR9jT2o6QzkqclBGZ1UIATyzreQ0M9LB483z-Hy0_ly"/>
+</div>
+<div class="hidden md:block">
+<p class="font-bold text-sm text-on-surface">Alex R.</p>
+<p class="text-xs text-primary">Elite Tier</p>
+</div>
+</div>
+<button class="w-full flex items-center justify-center gap-2 p-3 rounded-xl bg-surface-variant text-on-surface-variant hover:bg-primary/10 hover:text-primary transition-all">
+<span class="material-symbols-outlined">logout</span>
+<span class="hidden md:block text-xs font-bold uppercase">Exit Hub</span>
+</button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-20 md:ml-64 pt-16 min-h-screen">
+<!-- Top App Bar -->
+<header class="fixed top-0 right-0 left-20 md:left-64 z-40 h-16 bg-surface/40 backdrop-blur-md border-b border-white/5 flex justify-between items-center px-container-margin">
+<div class="flex items-center gap-4">
+<h1 class="font-headline-md text-primary font-black">HUB</h1>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden sm:flex items-center px-4 py-2 bg-primary-container/10 rounded-full border border-primary/20">
+<span class="material-symbols-outlined text-primary text-lg mr-2" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-bold text-primary">Life Score: 88</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 rounded-full hover:bg-surface-variant/50 transition-all flex items-center justify-center text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="w-10 h-10 rounded-full hover:bg-surface-variant/50 transition-all flex items-center justify-center text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Content Area -->
+<div class="p-container-margin max-w-[1400px] mx-auto space-y-stack-lg">
+<!-- Hero Stats Row -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Life Score Main Card -->
+<div class="lg:col-span-4 glass-card p-stack-lg rounded-lg flex flex-col items-center justify-center text-center relative overflow-hidden">
+<div class="absolute inset-0 opacity-10 bg-gradient-to-br from-primary to-transparent"></div>
+<h3 class="font-label-sm uppercase tracking-widest text-primary mb-6">Aggregate Potential</h3>
+<div class="relative w-48 h-48 mb-6">
+<svg class="w-full h-full" viewbox="0 0 100 100">
+<circle class="text-surface-variant" cx="50" cy="50" fill="transparent" r="42" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-primary progress-ring-circle life-score-glow" cx="50" cy="50" fill="transparent" r="42" stroke="currentColor" stroke-dasharray="264" stroke-dashoffset="42" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-5xl font-black text-on-surface">84</span>
+<span class="text-xs font-bold text-on-surface-variant">/ 100</span>
+</div>
+</div>
+<p class="text-on-surface-variant font-body-base leading-relaxed mb-6 px-4">
+                        You're in the <span class="text-primary font-bold">top 12%</span> of performers this week. Focus on <span class="text-tertiary font-bold">Sleep</span> to boost your score.
+                    </p>
+<button class="w-full py-4 bg-primary text-on-primary font-bold rounded-xl shadow-[0_4px_20px_rgba(207,188,255,0.4)] hover:scale-[1.02] transition-transform active:scale-95">
+                        DAILY RITUAL: INITIATE
+                    </button>
+</div>
+<!-- Domain Grid -->
+<div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Mind Card -->
+<div class="glass-card rounded-lg p-stack-md domain-glow-blue flex flex-col justify-between group overflow-hidden relative">
+<div class="absolute top-2 right-2 opacity-5 scale-150 pointer-events-none">
+<span class="material-symbols-outlined text-[120px]">psychology</span>
+</div>
+<div class="flex justify-between items-start mb-4">
+<div>
+<h4 class="text-2xl font-black text-white">MIND</h4>
+<p class="text-sm text-blue-400 font-bold">Flow State: 84%</p>
+</div>
+<div class="w-20 h-20 animate-float">
+<div class="w-full h-full bg-no-repeat rounded-full filter drop-shadow-[0_0_8px_rgba(56,189,248,0.6)]" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBCLse8WYjAwGvl_hk5oo6n3IWcGcwAvpA-wOF9fjfDl5xKjGILHiko4FRqyoVXEYiLGF-xEJkX5_BqOO8b0i6aYUR0YW9dSzPFoKI-etzqc-jNkqhwgCnRMLKo13UnqO9gY5OwA7Lnl00FViSbO_xmSrvNSmB-Tb0jUWL0DVFUggAEgAqNms-5ucA_eOPXc_sNxLJKaYErieGESyKvZNYgdz4CFxHpL5_E1LBZyrhEDaJzMyTJvOuKPBpE6hXdmRkug2LdiCkL1zSq'); background-position: 5% 5%; background-size: 500%;"></div>
+</div>
+</div>
+<div class="space-y-4 relative z-10">
+<div class="h-2 w-full bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-blue-400 w-[84%] shadow-[0_0_10px_rgba(56,189,248,0.8)]"></div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-xs font-bold text-on-surface-variant">Focus Session: 2h 15m</span>
+<button class="text-blue-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Sleep Card -->
+<div class="glass-card rounded-lg p-stack-md domain-glow-purple flex flex-col justify-between group overflow-hidden relative">
+<div class="absolute top-2 right-2 opacity-5 scale-150 pointer-events-none">
+<span class="material-symbols-outlined text-[120px]">bedtime</span>
+</div>
+<div class="flex justify-between items-start mb-4">
+<div>
+<h4 class="text-2xl font-black text-white">SLEEP</h4>
+<p class="text-sm text-purple-400 font-bold">Recovery: 72%</p>
+</div>
+<div class="w-20 h-20 animate-float" style="animation-delay: 1s;">
+<div class="w-full h-full bg-no-repeat rounded-full filter drop-shadow-[0_0_8px_rgba(167,139,250,0.6)]" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBCLse8WYjAwGvl_hk5oo6n3IWcGcwAvpA-wOF9fjfDl5xKjGILHiko4FRqyoVXEYiLGF-xEJkX5_BqOO8b0i6aYUR0YW9dSzPFoKI-etzqc-jNkqhwgCnRMLKo13UnqO9gY5OwA7Lnl00FViSbO_xmSrvNSmB-Tb0jUWL0DVFUggAEgAqNms-5ucA_eOPXc_sNxLJKaYErieGESyKvZNYgdz4CFxHpL5_E1LBZyrhEDaJzMyTJvOuKPBpE6hXdmRkug2LdiCkL1zSq'); background-position: 28% 5%; background-size: 500%;"></div>
+</div>
+</div>
+<div class="space-y-4 relative z-10">
+<div class="h-2 w-full bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-purple-400 w-[72%] shadow-[0_0_10px_rgba(167,139,250,0.8)]"></div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-xs font-bold text-on-surface-variant">Deep Sleep: 1h 45m</span>
+<button class="text-purple-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Money Card -->
+<div class="glass-card rounded-lg p-stack-md domain-glow-emerald flex flex-col justify-between group overflow-hidden relative">
+<div class="absolute top-2 right-2 opacity-5 scale-150 pointer-events-none">
+<span class="material-symbols-outlined text-[120px]">savings</span>
+</div>
+<div class="flex justify-between items-start mb-4">
+<div>
+<h4 class="text-2xl font-black text-white">MONEY</h4>
+<p class="text-sm text-emerald-400 font-bold">Growth: 112%</p>
+</div>
+<div class="w-20 h-20 animate-float" style="animation-delay: 2s;">
+<div class="w-full h-full bg-no-repeat rounded-full filter drop-shadow-[0_0_8px_rgba(52,211,153,0.6)]" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBCLse8WYjAwGvl_hk5oo6n3IWcGcwAvpA-wOF9fjfDl5xKjGILHiko4FRqyoVXEYiLGF-xEJkX5_BqOO8b0i6aYUR0YW9dSzPFoKI-etzqc-jNkqhwgCnRMLKo13UnqO9gY5OwA7Lnl00FViSbO_xmSrvNSmB-Tb0jUWL0DVFUggAEgAqNms-5ucA_eOPXc_sNxLJKaYErieGESyKvZNYgdz4CFxHpL5_E1LBZyrhEDaJzMyTJvOuKPBpE6hXdmRkug2LdiCkL1zSq'); background-position: 28% 78%; background-size: 500%;"></div>
+</div>
+</div>
+<div class="space-y-4 relative z-10">
+<div class="h-2 w-full bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-emerald-400 w-[95%] shadow-[0_0_10px_rgba(52,211,153,0.8)]"></div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-xs font-bold text-on-surface-variant">Savings Goal: $4,500</span>
+<button class="text-emerald-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Hobbies Card -->
+<div class="glass-card rounded-lg p-stack-md domain-glow-magenta flex flex-col justify-between group overflow-hidden relative">
+<div class="absolute top-2 right-2 opacity-5 scale-150 pointer-events-none">
+<span class="material-symbols-outlined text-[120px]">palette</span>
+</div>
+<div class="flex justify-between items-start mb-4">
+<div>
+<h4 class="text-2xl font-black text-white">HOBBIES</h4>
+<p class="text-sm text-pink-400 font-bold">Mastery: 45%</p>
+</div>
+<div class="w-20 h-20 animate-float" style="animation-delay: 1.5s;">
+<div class="w-full h-full bg-no-repeat rounded-full filter drop-shadow-[0_0_8px_rgba(244,114,182,0.6)]" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBCLse8WYjAwGvl_hk5oo6n3IWcGcwAvpA-wOF9fjfDl5xKjGILHiko4FRqyoVXEYiLGF-xEJkX5_BqOO8b0i6aYUR0YW9dSzPFoKI-etzqc-jNkqhwgCnRMLKo13UnqO9gY5OwA7Lnl00FViSbO_xmSrvNSmB-Tb0jUWL0DVFUggAEgAqNms-5ucA_eOPXc_sNxLJKaYErieGESyKvZNYgdz4CFxHpL5_E1LBZyrhEDaJzMyTJvOuKPBpE6hXdmRkug2LdiCkL1zSq'); background-position: 72% 78%; background-size: 500%;"></div>
+</div>
+</div>
+<div class="space-y-4 relative z-10">
+<div class="h-2 w-full bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-pink-400 w-[45%] shadow-[0_0_10px_rgba(244,114,182,0.8)]"></div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-xs font-bold text-on-surface-variant">New Skill: Digital Art</span>
+<button class="text-pink-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Secondary Bento Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Activity Feed -->
+<div class="lg:col-span-2 glass-card rounded-lg p-stack-md overflow-hidden relative">
+<h3 class="font-headline-md text-white mb-6 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">analytics</span>
+                        Recent Progression
+                    </h3>
+<div class="space-y-4">
+<div class="flex items-center gap-4 p-4 bg-surface-container/30 rounded-xl border border-white/5 hover:bg-surface-container/50 transition-all cursor-pointer">
+<div class="w-12 h-12 bg-emerald-400/20 rounded-full flex items-center justify-center text-emerald-400">
+<span class="material-symbols-outlined">trending_up</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-white">Investment Milestone Reached</p>
+<p class="text-xs text-on-surface-variant">You hit 90% of your Monthly Savings goal.</p>
+</div>
+<span class="text-xs text-outline font-bold">2h ago</span>
+</div>
+<div class="flex items-center gap-4 p-4 bg-surface-container/30 rounded-xl border border-white/5 hover:bg-surface-container/50 transition-all cursor-pointer">
+<div class="w-12 h-12 bg-blue-400/20 rounded-full flex items-center justify-center text-blue-400">
+<span class="material-symbols-outlined">timer</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-white">Mindfulness Streak: 12 Days</p>
+<p class="text-xs text-on-surface-variant">+20 XP added to Mind Domain.</p>
+</div>
+<span class="text-xs text-outline font-bold">5h ago</span>
+</div>
+<div class="flex items-center gap-4 p-4 bg-surface-container/30 rounded-xl border border-white/5 hover:bg-surface-container/50 transition-all cursor-pointer">
+<div class="w-12 h-12 bg-purple-400/20 rounded-full flex items-center justify-center text-purple-400">
+<span class="material-symbols-outlined">bedtime</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-white">Optimal REM Detected</p>
+<p class="text-xs text-on-surface-variant">Quality sleep recorded. Recovery level high.</p>
+</div>
+<span class="text-xs text-outline font-bold">Yesterday</span>
+</div>
+</div>
+</div>
+<!-- Ritual Selector -->
+<div class="glass-card rounded-lg p-stack-md flex flex-col">
+<h3 class="font-headline-md text-white mb-6">Active Rituals</h3>
+<div class="space-y-4 flex-1">
+<div class="p-4 rounded-xl border border-primary/20 bg-primary/5 flex items-center justify-between group cursor-pointer hover:border-primary/50 transition-all">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">wb_sunny</span>
+<span class="text-sm font-bold text-on-surface">Morning Core</span>
+</div>
+<span class="text-xs text-primary font-bold">85% COMPLETE</span>
+</div>
+<div class="p-4 rounded-xl border border-white/5 bg-white/5 flex items-center justify-between group cursor-pointer hover:border-white/20 transition-all">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant">fitness_center</span>
+<span class="text-sm font-bold text-on-surface">Power Hour</span>
+</div>
+<span class="text-xs text-on-surface-variant font-bold">SCHEDULED</span>
+</div>
+<div class="p-4 rounded-xl border border-white/5 bg-white/5 flex items-center justify-between group cursor-pointer hover:border-white/20 transition-all">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant">nightlight</span>
+<span class="text-sm font-bold text-on-surface">Wind Down</span>
+</div>
+<span class="text-xs text-on-surface-variant font-bold">READY</span>
+</div>
+</div>
+<button class="mt-6 w-full py-3 rounded-xl border border-outline/30 text-on-surface-variant font-bold hover:bg-white/5 transition-all text-sm uppercase tracking-widest">
+                        Customize rituals
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Quick Actions -->
+<script>
+        // Micro-interaction for hover glow effects
+        const cards = document.querySelectorAll('.glass-card');
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        // Simple animation for the progress ring on load
+        window.addEventListener('DOMContentLoaded', () => {
+            const circle = document.querySelector('.progress-ring-circle');
+            if (circle) {
+                circle.style.strokeDashoffset = '42'; // Corresponds to 84% (264 * (1 - 0.84))
+            }
+        });
+    </script>
+<!-- Aura AI Chat Interface -->
+<div class="fixed bottom-28 right-8 w-80 md:w-96 h-[500px] glass-card rounded-xl flex flex-col z-50 transition-all duration-300 translate-y-10 opacity-0 pointer-events-none shadow-[0_8px_32px_rgba(0,0,0,0.5)] overflow-hidden" id="aura-chat-window">
+<!-- Header -->
+<div class="p-4 border-b border-white/10 bg-primary/10 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-primary/30 bg-surface-container-low">
+<img alt="Aura AI" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLvTV5KxqJnLlwLnEqTZ65G4_2CRnA7v6Ev7JBMfK7QJxj4AN8aXvHTcQ8KkiZTEsTKS-EkrOJYh0vixA_ycM-0mpJEPSb0Bp265snGKBuwfxHQeEG5NQiciiMCVk7r7ZBYRYkI-LxlkFe-p3GmuGLEqrUSsxAKUijACQ4izvE8YfUZe874E2ZBFhY7sadDkDp6_7x18cqBXtNPPumJ-i_FqYfSJDXBw99voxBb3RzEUVUi2POsUAUf20oA"/>
+</div>
+<div>
+<h4 class="text-sm font-bold text-white">Aura AI</h4>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+<span class="text-[10px] text-on-surface-variant uppercase font-bold tracking-wider">Online</span>
+</div>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-white" onclick="toggleAuraChat()">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Chat History -->
+<div class="flex-1 overflow-y-auto p-4 space-y-4">
+<div class="flex flex-col items-start">
+<div class="bg-surface-variant/50 p-3 rounded-2xl rounded-tl-none max-w-[85%] text-sm text-on-surface">
+                Hello Alex! I've analyzed your REM cycles. You're 12% more recovered than yesterday. Ready for your next quest?
+            </div>
+<span class="text-[10px] text-outline mt-1 ml-1">Aura • 2m ago</span>
+</div>
+<div class="flex flex-col items-end">
+<div class="bg-primary/20 border border-primary/20 p-3 rounded-2xl rounded-tr-none max-w-[85%] text-sm text-white">
+                What's my next quest?
+            </div>
+<span class="text-[10px] text-outline mt-1 mr-1">You • Just now</span>
+</div>
+</div>
+<!-- Suggestions -->
+<div class="px-4 py-2 flex gap-2 overflow-x-auto no-scrollbar">
+<button class="whitespace-nowrap px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-primary hover:bg-primary/10 transition-colors">Analyze my sleep</button>
+<button class="whitespace-nowrap px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-primary hover:bg-primary/10 transition-colors">Next quest?</button>
+</div>
+<!-- Input -->
+<div class="p-4 border-t border-white/10">
+<div class="relative">
+<input class="w-full bg-surface-container-low border border-white/10 rounded-full py-2.5 pl-4 pr-12 text-sm focus:outline-none focus:border-primary/50 transition-colors" placeholder="Ask Aura..." type="text"/>
+<button class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-sm">send</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Aura FAB -->
+<button class="fixed bottom-8 right-8 w-16 h-16 bg-surface-container-low border border-primary/30 rounded-full flex items-center justify-center shadow-[0_8px_32px_rgba(167,139,250,0.3)] z-50 hover:scale-110 active:scale-95 transition-all group overflow-hidden" id="aura-fab" onclick="toggleAuraChat()">
+<div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<img alt="Aura AI" class="w-10 h-10 object-cover relative z-10" src="https://lh3.googleusercontent.com/aida/AP1WRLvTV5KxqJnLlwLnEqTZ65G4_2CRnA7v6Ev7JBMfK7QJxj4AN8aXvHTcQ8KkiZTEsTKS-EkrOJYh0vixA_ycM-0mpJEPSb0Bp265snGKBuwfxHQeEG5NQiciiMCVk7r7ZBYRYkI-LxlkFe-p3GmuGLEqrUSsxAKUijACQ4izvE8YfUZe874E2ZBFhY7sadDkDp6_7x18cqBXtNPPumJ-i_FqYfSJDXBw99voxBb3RzEUVUi2POsUAUf20oA"/>
+</button><script>
+function toggleAuraChat() {
+    const chat = document.getElementById('aura-chat-window');
+    const isHidden = chat.classList.contains('opacity-0');
+    
+    if (isHidden) {
+        chat.classList.remove('opacity-0', 'translate-y-10', 'pointer-events-none');
+        chat.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+    } else {
+        chat.classList.add('opacity-0', 'translate-y-10', 'pointer-events-none');
+        chat.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+    }
+}
+</script></body></html>

@@ -1,0 +1,14 @@
+/* ===== Life Search ===== */
+
+.life-search { padding: var(--stack-md); }
+.life-search__header { margin-bottom: 12px; }
+.life-search__eyebrow { display: block; margin-bottom: 5px; color: var(--primary); font-size: 10px; font-weight: 900; letter-spacing: 0.14em; text-transform: uppercase; }
+.life-search__header h3 { color: white; font-size: 20px; font-weight: 900; }
+.life-search__input { width: 100%; border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius); background: rgba(255,255,255,0.04); color: var(--on-surface); padding: 12px 14px; margin-bottom: 10px; }
+.life-search__chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.life-search__chip { border: 1px solid rgba(207,188,255,0.16); color: var(--primary); background: rgba(207,188,255,0.08); padding: 7px 10px; border-radius: 999px; font-size: 11px; font-weight: 700; cursor: pointer; }
+.life-search__results { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.life-search__results li { padding: 12px; border-radius: var(--radius); background: rgba(255,255,255,0.035); border: 1px solid rgba(255,255,255,0.05); }
+.life-search__results strong { display: block; color: white; margin-bottom: 4px; }
+.life-search__results p, .life-search__results small, .life-search__empty { color: var(--on-surface-variant); font-size: 12px; line-height: 1.5; }
+.life-search__empty { margin: 0; padding: 8px 2px; }

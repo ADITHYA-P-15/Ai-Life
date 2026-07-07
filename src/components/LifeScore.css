@@ -1,0 +1,165 @@
+/* LifeScore.css — LVL_UP styled circular score display */
+
+.life-score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.life-score__ring {
+  position: relative;
+  width: 192px;
+  height: 192px;
+}
+
+.life-score__ring svg {
+  width: 100%;
+  height: 100%;
+}
+
+.life-score__track {
+  fill: transparent;
+  stroke: var(--surface-variant);
+  stroke-width: 8;
+}
+
+.life-score__progress {
+  fill: transparent;
+  stroke: var(--primary);
+  stroke-width: 8;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.85s ease-in-out;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  filter: drop-shadow(0 0 12px rgba(207, 188, 255, 0.5));
+}
+
+.life-score__value-container {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.life-score__number {
+  font-size: 48px;
+  font-weight: 900;
+  color: var(--on-surface);
+  transition: transform 0.3s var(--ease-spring);
+}
+
+.life-score__number--pulse {
+  animation: score-pulse 0.65s ease;
+}
+
+@keyframes score-pulse {
+  0% { transform: scale(1); }
+  30% { transform: scale(1.12); }
+  60% { transform: scale(0.97); }
+  100% { transform: scale(1); }
+}
+
+.life-score__of {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--on-surface-variant);
+}
+
+.life-score__label {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Hover breakdown tooltip */
+.life-score__breakdown {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--surface-container);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius);
+  padding: 16px;
+  width: 200px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  z-index: 10;
+}
+
+.life-score__ring:hover .life-score__breakdown {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.life-score__breakdown-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--on-surface-variant);
+  margin-bottom: 12px;
+}
+
+.life-score__breakdown-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.life-score__breakdown-label {
+  font-size: 11px;
+  color: var(--on-surface-variant);
+  width: 50px;
+  flex-shrink: 0;
+}
+
+.life-score__breakdown-bar-track {
+  flex: 1;
+  height: 4px;
+  background: var(--surface-variant);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.life-score__breakdown-bar-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width 0.5s ease;
+}
+
+.life-score__breakdown-bar--mood { background: var(--domain-mind); }
+.life-score__breakdown-bar--sleep { background: var(--domain-sleep); }
+.life-score__breakdown-bar--habits { background: var(--domain-habits); }
+.life-score__breakdown-bar--hobbies { background: var(--domain-hobbies); }
+.life-score__breakdown-bar--budget { background: var(--domain-money); }
+
+.life-score__breakdown-value {
+  font-size: 11px;
+  font-weight: 700;
+  width: 24px;
+  text-align: right;
+}
+
+.life-score__breakdown-value--mood { color: var(--domain-mind); }
+.life-score__breakdown-value--sleep { color: var(--domain-sleep); }
+.life-score__breakdown-value--habits { color: var(--domain-habits); }
+.life-score__breakdown-value--hobbies { color: var(--domain-hobbies); }
+.life-score__breakdown-value--budget { color: var(--domain-money); }
+
+@media (max-width: 768px) {
+  .life-score__ring {
+    width: 140px;
+    height: 140px;
+  }
+
+  .life-score__number {
+    font-size: 36px;
+  }
+}

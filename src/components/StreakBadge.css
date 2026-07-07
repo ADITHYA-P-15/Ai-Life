@@ -1,0 +1,110 @@
+/* StreakBadge.css — LVL_UP styled streak display */
+
+.streak-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--on-surface-variant);
+  cursor: default;
+  transition: all 0.3s var(--ease-out);
+  max-width: 60px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.streak-badge:hover {
+  max-width: 200px;
+}
+
+.streak-badge__emoji {
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.streak-badge__count {
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.streak-badge__details {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  color: var(--on-surface-variant);
+  opacity: 0;
+  transition: opacity 0.2s;
+  overflow: hidden;
+}
+
+.streak-badge:hover .streak-badge__details {
+  opacity: 1;
+}
+
+/* Tier-specific styling */
+.streak-badge--none {
+  border-color: rgba(255, 255, 255, 0.05);
+  color: var(--outline);
+}
+
+.streak-badge--started {
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.05);
+}
+
+.streak-badge--building {
+  border-color: rgba(16, 185, 129, 0.3);
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.15);
+  color: var(--domain-habits);
+}
+
+.streak-badge--fire {
+  border-color: rgba(231, 195, 101, 0.4);
+  box-shadow: 0 0 12px rgba(231, 195, 101, 0.2);
+  color: var(--tertiary);
+  background: rgba(231, 195, 101, 0.08);
+}
+
+.streak-badge--committed {
+  border-color: rgba(207, 188, 255, 0.3);
+  box-shadow: 0 0 14px rgba(207, 188, 255, 0.2);
+  color: var(--primary);
+  background: rgba(207, 188, 255, 0.08);
+}
+
+.streak-badge--champion {
+  border-color: rgba(231, 195, 101, 0.5);
+  box-shadow: 0 0 18px rgba(231, 195, 101, 0.3);
+  color: var(--tertiary);
+  background: rgba(231, 195, 101, 0.12);
+}
+
+.streak-badge--master {
+  border-color: rgba(207, 188, 255, 0.5);
+  box-shadow: 0 0 20px rgba(207, 188, 255, 0.3);
+  color: var(--primary);
+  background: rgba(207, 188, 255, 0.12);
+}
+
+.streak-badge--legendary {
+  background: linear-gradient(135deg, rgba(207,188,255,0.15), rgba(255,77,255,0.15));
+  border-image: linear-gradient(135deg, var(--primary), var(--domain-hobbies), var(--tertiary)) 1;
+  box-shadow: 0 0 24px rgba(207, 188, 255, 0.3);
+  color: var(--primary);
+}
+
+/* Pulse for high streaks */
+.streak-badge--pulse {
+  animation: streak-pulse 2s ease-in-out infinite;
+}
+
+@keyframes streak-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+}

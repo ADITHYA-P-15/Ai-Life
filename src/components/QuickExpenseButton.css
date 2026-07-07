@@ -1,0 +1,115 @@
+/* ===== Quick Expense Shortcut ===== */
+
+.quick-expense-fab {
+  position: fixed;
+  right: 112px;
+  bottom: 38px;
+  z-index: var(--z-fab);
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: 1px solid rgba(245,200,75,0.38);
+  background: var(--domain-money);
+  color: #171006;
+  font-size: 18px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 10px 32px rgba(245,200,75,0.28);
+  transition: transform 0.2s var(--ease-spring), box-shadow 0.2s;
+}
+
+.quick-expense-fab:hover {
+  transform: scale(1.08);
+  box-shadow: 0 12px 38px rgba(245,200,75,0.36);
+}
+
+.quick-expense-fab--active {
+  transform: scale(0.96);
+}
+
+.quick-expense {
+  position: fixed;
+  right: 104px;
+  bottom: 104px;
+  z-index: var(--z-modal);
+  width: min(310px, calc(100vw - 32px));
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(245,200,75,0.22);
+  background: rgba(24,24,27,0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 18px 60px rgba(0,0,0,0.45);
+}
+
+.quick-expense__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.quick-expense__header strong {
+  color: var(--on-surface);
+  font-size: 14px;
+}
+
+.quick-expense__row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius);
+  background: rgba(255,255,255,0.045);
+  padding: 0 12px;
+}
+
+.quick-expense__row span {
+  color: var(--domain-money);
+  font-weight: 900;
+}
+
+.quick-expense input,
+.quick-expense select {
+  width: 100%;
+  min-height: 40px;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius);
+  background: rgba(255,255,255,0.045);
+  color: var(--on-surface);
+  padding: 0 12px;
+  font: inherit;
+  font-size: 13px;
+  outline: none;
+}
+
+.quick-expense__row input {
+  border: 0;
+  background: transparent;
+  padding: 0;
+}
+
+.quick-expense__submit {
+  min-height: 40px;
+  border: 0;
+  border-radius: var(--radius);
+  background: var(--domain-money);
+  color: #171006;
+  font-size: 12px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  .quick-expense-fab {
+    right: 92px;
+    bottom: 29px;
+  }
+
+  .quick-expense {
+    right: 16px;
+    bottom: 94px;
+  }
+}

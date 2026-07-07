@@ -1,0 +1,227 @@
+/* ===== Phase Four Panel ===== */
+
+.phase-four {
+  padding: var(--stack-md);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.phase-four__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.phase-four__eyebrow {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--primary);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.phase-four__header h3 {
+  color: var(--on-surface);
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.phase-four__install {
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px 6px 12px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(207, 188, 255, 0.18);
+  background: rgba(207, 188, 255, 0.07);
+  color: var(--on-surface);
+  font-size: 12px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.phase-four__install .material-symbols-outlined {
+  color: var(--primary);
+  font-size: 20px;
+}
+
+.phase-four__install button {
+  height: 28px;
+  border: 0;
+  border-radius: var(--radius-full);
+  padding: 0 12px;
+  background: var(--primary);
+  color: var(--on-primary);
+  font-size: 11px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.phase-four__install button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.phase-four__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.8fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+.phase-four__badges {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.phase-four__badge {
+  min-height: 82px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255, 255, 255, 0.055);
+  background: rgba(255, 255, 255, 0.032);
+  opacity: 0.58;
+}
+
+.phase-four__badge--unlocked {
+  opacity: 1;
+  border-color: rgba(207, 188, 255, 0.22);
+  background: linear-gradient(135deg, rgba(207, 188, 255, 0.09), rgba(255, 255, 255, 0.03));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.phase-four__badge > .material-symbols-outlined {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.055);
+  color: var(--on-surface-variant);
+  flex-shrink: 0;
+}
+
+.phase-four__badge--unlocked > .material-symbols-outlined {
+  color: var(--primary);
+  background: rgba(207, 188, 255, 0.16);
+}
+
+.phase-four__badge p {
+  color: var(--on-surface);
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 1.25;
+}
+
+.phase-four__badge small {
+  display: block;
+  margin-top: 4px;
+  color: var(--on-surface-variant);
+  font-size: 11px;
+  line-height: 1.3;
+}
+
+.phase-four__report {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.phase-four__report-card {
+  flex: 1;
+  display: flex;
+  gap: 14px;
+  padding: 16px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(245, 200, 75, 0.18);
+  background: rgba(245, 200, 75, 0.065);
+}
+
+.phase-four__report-card > .material-symbols-outlined {
+  color: var(--domain-money);
+  font-size: 30px;
+  flex-shrink: 0;
+}
+
+.phase-four__report-card h4 {
+  margin-bottom: 8px;
+  color: var(--on-surface);
+  font-size: 15px;
+  font-weight: 900;
+}
+
+.phase-four__report-card p {
+  color: var(--on-surface-variant);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.phase-four__report-caption {
+  margin-top: 8px;
+  color: var(--on-surface);
+  font-weight: 700;
+}
+.phase-four__report-caption--goal {
+  margin-top: 6px;
+  color: var(--domain-mind);
+}
+
+.phase-four__actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.phase-four__actions button {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.045);
+  color: var(--on-surface);
+  font-size: 12px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+}
+
+.phase-four__actions button:hover {
+  border-color: rgba(207, 188, 255, 0.28);
+  background: rgba(207, 188, 255, 0.08);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 1100px) {
+  .phase-four__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .phase-four__header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .phase-four__install {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .phase-four__badges {
+    grid-template-columns: 1fr;
+  }
+}

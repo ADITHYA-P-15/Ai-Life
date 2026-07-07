@@ -1,0 +1,47 @@
+/* MobileNav.css — Floating bottom navigation (mobile only) */
+
+.mobile-nav {
+  display: none; /* hidden on desktop */
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(15, 13, 19, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-full);
+  padding: 8px 24px;
+  gap: 8px;
+  z-index: var(--z-fab);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.mobile-nav__item {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: var(--on-surface-variant);
+  text-decoration: none;
+  transition: all 0.2s var(--ease-out);
+}
+
+.mobile-nav__item:hover {
+  color: var(--primary);
+}
+
+.mobile-nav__item--active {
+  color: var(--primary);
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 10px rgba(207, 188, 255, 0.5));
+}
+
+@media (max-width: 768px) {
+  .mobile-nav {
+    display: flex;
+    align-items: center;
+  }
+}

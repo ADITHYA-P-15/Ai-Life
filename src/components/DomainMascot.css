@@ -1,0 +1,85 @@
+.domain-mascot {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--mascot-glow-color);
+}
+
+.domain-mascot__viewport {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.domain-mascot__viewport::before {
+  content: '';
+  position: absolute;
+  inset: 12%;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 42%, var(--mascot-glow-color), transparent 58%),
+    radial-gradient(circle at 50% 72%, rgba(255,255,255,0.12), transparent 46%);
+  opacity: 0.22;
+  filter: blur(14px);
+  transform: translateY(6%);
+  pointer-events: none;
+}
+
+.domain-mascot__svg {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  transition: transform 0.45s var(--ease-out), filter 0.45s var(--ease-out);
+}
+
+.domain-mascot--hero .domain-mascot__viewport,
+.domain-mascot--cloud .domain-mascot__viewport {
+  overflow: visible;
+  border: none;
+  background: transparent;
+}
+
+.domain-mascot--hero:hover .domain-mascot__svg,
+.domain-mascot--cloud:hover .domain-mascot__svg {
+  transform: translateY(-2px) scale(1.035);
+  filter: saturate(1.08);
+}
+
+.domain-mascot--chip .domain-mascot__viewport {
+  overflow: hidden;
+  border-radius: 50%;
+  border: 1px solid var(--mascot-ring, rgba(255, 255, 255, 0.08));
+  background:
+    radial-gradient(circle at 50% 36%, rgba(255,255,255,0.09), transparent 42%),
+    rgba(255, 255, 255, 0.025);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.12),
+    0 0 24px -10px var(--mascot-glow-color);
+}
+
+.domain-mascot--chip .domain-mascot__viewport::before {
+  inset: 4%;
+  opacity: 0.17;
+  filter: blur(10px);
+}
+
+.domain-mascot--chip .domain-mascot__svg {
+  width: 112%;
+  height: 112%;
+}
+
+.domain-mascot--chip:hover .domain-mascot__svg {
+  transform: scale(1.07);
+}
+
+.domain-mascot--money.domain-mascot--hero .domain-mascot__svg,
+.domain-mascot--money.domain-mascot--chip .domain-mascot__svg {
+  filter: saturate(1.08) contrast(1.03);
+}

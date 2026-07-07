@@ -1,0 +1,99 @@
+/* MindPage.css */
+.mind__grid { display: grid; grid-template-columns: 4fr 8fr; gap: var(--gutter); }
+.mind__left { display: flex; flex-direction: column; gap: var(--gutter); }
+.mind__right { display: flex; flex-direction: column; gap: var(--gutter); }
+
+/* Status Card with Mascot */
+.mind__status-card {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-height: 260px;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.mind__status-bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0.12;
+  background: radial-gradient(circle at 50% 30%, rgba(0, 229, 255, 0.3), transparent 70%);
+  pointer-events: none;
+}
+.mind__mascot { margin-bottom: 20px; }
+.mind__status-text { position: relative; z-index: 1; }
+.mind__status-label { font-size: 18px; font-weight: 700; color: var(--on-surface); margin-bottom: 6px; }
+.mind__status-sub { font-size: 12px; color: var(--on-surface-variant); line-height: 1.5; max-width: 260px; }
+
+/* Load Card */
+.mind__load-card { padding: 18px; }
+.mind__load-row { display: flex; align-items: center; justify-content: space-between; margin: 12px 0 8px; }
+.mind__load-pct { font-size: 40px; font-weight: 900; color: var(--on-surface); }
+.mind__load-unit { font-size: 20px; color: var(--domain-mind); text-shadow: 0 0 12px rgba(0,229,255,0.4); }
+.mind__load-ring { width: 84px; height: 84px; }
+.mind__load-text { font-size: 12px; color: var(--on-surface-variant); }
+
+/* Trend Chart */
+.mind__trend { padding: 20px; }
+.mind__trend-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; gap: 12px; flex-wrap: wrap; }
+.mind__trend-title { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; font-size: 18px; color: white; }
+.mind__trend-sub { font-size: 12px; color: var(--on-surface-variant); }
+.mind__chart { display: flex; gap: 8px; align-items: flex-end; height: 160px; position: relative; }
+.mind__chart-grid {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; justify-content: space-between;
+  pointer-events: none;
+}
+.mind__chart-grid::before,
+.mind__chart-grid::after {
+  content: '';
+  border-top: 1px solid rgba(148, 142, 156, 0.15);
+  width: 100%;
+}
+.mind__chart-col { flex: 1; display: flex; flex-direction: column; align-items: center; height: 100%; position: relative; z-index: 1; }
+.mind__chart-bar-wrapper { flex: 1; display: flex; align-items: flex-end; width: 100%; max-width: 48px; }
+.mind__chart-bar { width: 100%; background: rgba(0,229,255,0.2); border-radius: 8px 8px 2px 2px; transition: height 0.5s ease, background 0.2s; min-height: 4px; }
+.mind__chart-bar:hover { background: rgba(0,229,255,0.35); }
+.mind__chart-bar--today { background: var(--domain-mind) !important; box-shadow: 0 0 20px rgba(0,229,255,0.4); }
+.mind__chart-label { font-size: 10px; font-weight: 700; color: var(--outline); text-transform: uppercase; margin-top: 8px; }
+
+/* Bottom grid */
+.mind__bottom-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 14px; }
+
+/* Emoji Grid */
+.mind__emoji-card, .mind__calibration { padding: 14px; display: flex; flex-direction: column; gap: 10px; min-height: 0; }
+.mind__card-heading { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.mind__state-pill { display: inline-flex; align-items: center; padding: 4px 8px; border-radius: 999px; background: rgba(0,229,255,0.12); color: var(--domain-mind); font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; }
+.mind__state-pill--accent { background: rgba(207,188,255,0.12); color: var(--primary); }
+.mind__state-preview { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: var(--radius); background: rgba(255,255,255,0.03); }
+.mind__state-emoji { font-size: 28px; line-height: 1; }
+.mind__state-title { margin: 0 0 2px; font-size: 14px; color: var(--on-surface); }
+.mind__state-copy { margin: 0; font-size: 12px; line-height: 1.45; color: var(--on-surface-variant); }
+.mind__emoji-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+.mind__emoji-btn { font-size: 22px; width: 100%; aspect-ratio: 1; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.03); cursor: pointer; transition: all 0.2s var(--ease-spring); }
+.mind__emoji-btn:hover { background: rgba(0,229,255,0.1); border-color: rgba(0,229,255,0.3); transform: scale(1.04); }
+.mind__emoji-btn--active { background: rgba(0,229,255,0.15); border-color: var(--domain-mind); box-shadow: 0 0 12px rgba(0,229,255,0.25); transform: scale(1.05); }
+
+/* Calibration */
+.mind__calibration { gap: 10px; }
+.mind__calibration-preview { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: var(--radius); background: rgba(207,188,255,0.08); }
+.mind__calibration-score { font-size: 24px; font-weight: 800; color: var(--primary); line-height: 1; }
+.mind__calibration-copy strong { display: block; font-size: 12px; color: var(--on-surface); margin-bottom: 2px; }
+.mind__calibration-copy p { margin: 0; font-size: 11px; line-height: 1.4; color: var(--on-surface-variant); }
+.mind__slider { margin: 2px 0 0; }
+.mind__calibration-labels { display: flex; justify-content: space-between; font-size: 9px; font-weight: 700; color: var(--outline); text-transform: uppercase; letter-spacing: 0.05em; }
+.mind__tag-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.mind__tag { min-height: 30px; border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-full); background: rgba(255,255,255,0.035); color: var(--on-surface-variant); padding: 0 10px; font-size: 11px; font-weight: 800; cursor: pointer; transition: border-color 0.2s, background 0.2s, color 0.2s; }
+.mind__tag:hover { border-color: rgba(0,229,255,0.28); background: rgba(0,229,255,0.07); color: var(--on-surface); }
+.mind__tag--active { border-color: rgba(0,229,255,0.48); background: rgba(0,229,255,0.13); color: var(--domain-mind); }
+.mind__calibration-actions { display: flex; flex-direction: column; gap: 8px; }
+.mind__note { width: 100%; resize: none; font-size: 13px; min-height: 48px; }
+.mind__micro-win { min-height: 34px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius); background: rgba(255,255,255,0.035); color: var(--on-surface-variant); font-size: 12px; font-weight: 900; cursor: pointer; }
+.mind__micro-win .material-symbols-outlined { color: var(--domain-money); font-size: 18px; }
+.mind__micro-win--active { border-color: rgba(245,200,75,0.35); background: rgba(245,200,75,0.1); color: var(--on-surface); }
+.mind__sync-btn { width: 100%; margin-top: 2px; font-size: 10px; letter-spacing: 0.14em; }
+
+@media (max-width: 1024px) { .mind__grid { grid-template-columns: 1fr; } }
+@media (max-width: 768px) { .mind__bottom-grid { grid-template-columns: 1fr; } .mind__status-card { min-height: 240px; } .mind__card-heading { align-items: flex-start; flex-direction: column; } }

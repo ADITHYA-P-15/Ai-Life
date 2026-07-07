@@ -1,0 +1,58 @@
+/* AppShell.css — Layout wrapper */
+
+.app-shell {
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Atmospheric background blobs */
+.app-shell__bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.app-shell__blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+}
+
+.app-shell__blob--primary {
+  top: -10%;
+  right: -10%;
+  width: 50%;
+  height: 50%;
+  background: rgba(207, 188, 255, 0.06);
+}
+
+.app-shell__blob--tertiary {
+  bottom: -5%;
+  left: -5%;
+  width: 40%;
+  height: 40%;
+  background: rgba(231, 195, 101, 0.04);
+}
+
+/* Main content area */
+.app-shell__main {
+  margin-left: var(--sidebar-w-expanded);
+  padding-top: 80px;  /* 64px topbar + 16px gap */
+  min-height: 100vh;
+  padding-bottom: 40px;
+}
+
+.app-shell__content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--container-margin);
+}
+
+@media (max-width: 768px) {
+  .app-shell__main {
+    margin-left: 0;
+    padding-bottom: 100px; /* space for mobile nav */
+  }
+}

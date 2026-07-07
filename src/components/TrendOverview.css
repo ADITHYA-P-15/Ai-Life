@@ -1,0 +1,223 @@
+/* ===== TrendOverview ===== */
+
+.trend-overview {
+  padding: var(--stack-md);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.trend-overview__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.trend-overview__title {
+  margin-bottom: 0;
+}
+
+.trend-overview__periods {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px;
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  flex-shrink: 0;
+}
+
+.trend-overview__period {
+  min-width: 44px;
+  height: 32px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--on-surface-variant);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.trend-overview__period--active {
+  background: rgba(207, 188, 255, 0.14);
+  color: var(--on-surface);
+  box-shadow: inset 0 0 0 1px rgba(207, 188, 255, 0.25);
+}
+
+.trend-overview__body {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(260px, 0.8fr);
+  gap: 20px;
+  align-items: stretch;
+}
+
+.trend-overview__chart-wrap {
+  min-width: 0;
+  min-height: 280px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(10, 10, 14, 0.24);
+  padding: 10px 8px 2px;
+}
+
+.trend-overview__side {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.trend-overview__review {
+  padding: 16px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(207, 188, 255, 0.12);
+  background: rgba(207, 188, 255, 0.05);
+}
+
+.trend-overview__eyebrow {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--primary);
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.trend-overview__review h4 {
+  margin: 0 0 8px;
+  color: var(--on-surface);
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.trend-overview__review p {
+  margin: 0;
+  color: var(--on-surface-variant);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.trend-overview__metrics {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+.trend-overview__metric {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 40px;
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.055);
+}
+
+.trend-overview__metric-label {
+  color: var(--on-surface-variant);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.trend-overview__metric strong {
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.trend-overview__correlations {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.trend-overview__correlation {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 68px;
+  padding: 12px;
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.055);
+}
+
+.trend-overview__correlation > .material-symbols-outlined {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.055);
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.trend-overview__correlation p {
+  margin: 0 0 4px;
+  color: var(--on-surface-variant);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.trend-overview__correlation strong {
+  color: var(--on-surface);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.trend-overview__correlation--good {
+  border-color: rgba(16, 185, 129, 0.16);
+}
+
+.trend-overview__correlation--good > .material-symbols-outlined {
+  color: var(--domain-habits);
+}
+
+.trend-overview__correlation--warn {
+  border-color: rgba(245, 200, 75, 0.18);
+}
+
+.trend-overview__correlation--warn > .material-symbols-outlined {
+  color: var(--domain-money);
+}
+
+@media (max-width: 1100px) {
+  .trend-overview__body {
+    grid-template-columns: 1fr;
+  }
+
+  .trend-overview__metrics {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .trend-overview__correlations {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .trend-overview__header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .trend-overview__periods {
+    width: 100%;
+  }
+
+  .trend-overview__period {
+    flex: 1;
+  }
+
+  .trend-overview__metrics,
+  .trend-overview__correlations {
+    grid-template-columns: 1fr;
+  }
+}

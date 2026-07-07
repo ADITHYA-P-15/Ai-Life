@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LVL_UP | CREATIVE_MATRIX</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#3b383e",
+                        "on-primary": "#381e72",
+                        "secondary": "#cdc0e9",
+                        "inverse-primary": "#6750a4",
+                        "surface-container-highest": "#36343a",
+                        "primary-fixed": "#e9ddff",
+                        "primary": "#cfbcff",
+                        "on-tertiary": "#3e2e00",
+                        "secondary-container": "#4d4465",
+                        "tertiary-container": "#c9a74d",
+                        "outline-variant": "#494551",
+                        "on-error-container": "#ffdad6",
+                        "on-background": "#e6e0e9",
+                        "primary-fixed-dim": "#cfbcff",
+                        "inverse-on-surface": "#322f35",
+                        "on-primary-fixed-variant": "#4f378a",
+                        "on-secondary-fixed-variant": "#4b4263",
+                        "surface-dim": "#141218",
+                        "surface": "#141218",
+                        "surface-container-lowest": "#0f0d13",
+                        "on-error": "#690005",
+                        "error": "#ffb4ab",
+                        "surface-container": "#211f24",
+                        "on-tertiary-container": "#503d00",
+                        "secondary-fixed-dim": "#cdc0e9",
+                        "on-tertiary-fixed": "#241a00",
+                        "on-surface": "#e6e0e9",
+                        "on-secondary": "#342b4b",
+                        "surface-tint": "#cfbcff",
+                        "tertiary": "#e7c365",
+                        "surface-variant": "#36343a",
+                        "outline": "#948e9c",
+                        "on-surface-variant": "#cbc4d2",
+                        "on-primary-fixed": "#22005d",
+                        "tertiary-fixed-dim": "#e7c365",
+                        "on-primary-container": "#e0d2ff",
+                        "inverse-surface": "#e6e0e9",
+                        "primary-container": "#6750a4",
+                        "background": "#141218",
+                        "tertiary-fixed": "#ffdf93",
+                        "on-secondary-fixed": "#1f1635",
+                        "error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#594400",
+                        "surface-container-high": "#2b292f",
+                        "surface-container-low": "#1d1b20",
+                        "secondary-fixed": "#e9ddff",
+                        "on-secondary-container": "#bfb2da",
+                        "domain-hobbies": "#FF4DFF"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "16px",
+                        "stack-sm": "8px",
+                        "container-margin": "24px",
+                        "gutter": "16px",
+                        "unit": "4px",
+                        "stack-lg": "32px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "display-lg-mobile": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "body-base": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                        "body-base": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(24, 24, 27, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .domain-glow-hobbies {
+            box-shadow: 0 0 20px rgba(255, 77, 255, 0.2);
+        }
+        .magenta-accent-glow {
+            filter: drop-shadow(0 0 8px rgba(255, 77, 255, 0.6));
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 77, 255, 0.3);
+            border-radius: 10px;
+        }
+        .radar-line {
+            stroke: rgba(255, 77, 255, 0.5);
+            stroke-width: 1;
+        }
+        .radar-area {
+            fill: rgba(255, 77, 255, 0.2);
+            stroke: #FF4DFF;
+            stroke-width: 2;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-base overflow-x-hidden selection:bg-domain-hobbies/30">
+<!-- Side Navigation Shell -->
+<aside class="h-screen w-64 fixed left-0 top-0 border-r border-white/10 bg-surface-container-low/50 backdrop-blur-md z-50 flex flex-col py-container-margin overflow-y-auto hidden md:flex">
+<div class="px-6 mb-10">
+<h1 class="font-display-lg text-display-lg-mobile text-primary drop-shadow-[0_0_10px_rgba(207,188,255,0.4)] tracking-tighter">LVL_UP</h1>
+<p class="text-label-sm font-label-sm text-primary/60 uppercase tracking-[0.2em]">Elite Tier</p>
+</div>
+<nav class="flex-1 space-y-2 px-2">
+<!-- Navigation Items Mapping -->
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-primary px-4 py-3 transition-colors duration-200 hover:bg-white/5 rounded-lg group" href="#">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary">dashboard</span>
+<span class="font-body-base">Hub</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-primary px-4 py-3 transition-colors duration-200 hover:bg-white/5 rounded-lg group" href="#">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary">psychology</span>
+<span class="font-body-base">Mind</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-primary px-4 py-3 transition-colors duration-200 hover:bg-white/5 rounded-lg group" href="#">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary">bedtime</span>
+<span class="font-body-base">Sleep</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-primary px-4 py-3 transition-colors duration-200 hover:bg-white/5 rounded-lg group" href="#">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary">reorder</span>
+<span class="font-body-base">Habits</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-primary px-4 py-3 transition-colors duration-200 hover:bg-white/5 rounded-lg group" href="#">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary">payments</span>
+<span class="font-body-base">Money</span>
+</a>
+<a class="flex items-center gap-3 bg-primary-container/30 text-primary border-r-4 border-primary px-4 py-3 shadow-[inset_0_0_15px_rgba(207,188,255,0.1)] rounded-lg" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">sports_esports</span>
+<span class="font-body-base">Hobbies</span>
+</a>
+</nav>
+<div class="px-4 mt-auto">
+<button class="w-full py-4 bg-primary text-on-primary font-bold rounded-xl active:scale-95 duration-150 ease-in-out shadow-lg shadow-primary/20">
+                Upgrade Protocol
+            </button>
+</div>
+</aside>
+<!-- Top Navigation Bar Shell -->
+<header class="fixed top-0 right-0 w-full md:w-[calc(100%-16rem)] h-16 border-b border-white/10 bg-surface-dim/60 backdrop-blur-lg z-40">
+<div class="flex justify-between items-center px-container-margin w-full h-full">
+<div class="flex items-center gap-6">
+<span class="font-display-lg text-primary md:hidden">LVL_UP</span>
+<div class="hidden lg:flex gap-6">
+<a class="text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-all" href="#">Global Leaderboard</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-sm text-label-sm" href="#">Domain Intel</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden sm:block">
+<span class="font-headline-md text-headline-md text-primary">Life Score: 9850</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-on-surface-variant hover:bg-white/5 rounded-full transition-all hover:scale-105 active:scale-95">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-white/5 rounded-full transition-all hover:scale-105 active:scale-95">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest border border-white/20 overflow-hidden ml-2 cursor-pointer">
+<img class="w-full h-full object-cover" data-alt="A futuristic professional portrait of a high-performance individual wearing sleek cyberpunk eyewear, set against a dark amethyst and neon blue digital background. The lighting is dramatic and moody, reflecting the high-end gaming aesthetic of the LVL_UP brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqrv27ICRlWv3fRC95fgmAmnBBPmrOgU8rmQzospanuNr-chFxNAxZxVGfpJfiRvN5j33owgG7BBO0FsrpPTH_0M48YgF1EeCbt_cFDIM3hg-pMolUT2pUB1_e9DtxSv0466SpH1fCu2l6Ists_NwilTneHlE-ofnLeEfnr4ZGs2zZDgGI7AMbrLcFS8ncRHtoB9y95D3uSNOxR4peVAKozAPSEl0tjbpOPpS50_RQq0ZOUYdCiE3V8VcHkb5-n48o6Z3yYEMVPynC"/>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-24 pb-12 px-container-margin md:ml-64 relative min-h-screen">
+<!-- Background Ambient Shader -->
+
+<!-- Page Header -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between mb-stack-lg gap-gutter">
+<div>
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-domain-hobbies magenta-accent-glow">CREATIVE_MATRIX</h2>
+<div class="flex items-center gap-3 mt-stack-sm">
+<div class="flex items-center gap-2 px-3 py-1 bg-domain-hobbies/10 border border-domain-hobbies/30 rounded-full">
+<span class="w-2 h-2 rounded-full bg-domain-hobbies animate-pulse"></span>
+<span class="text-label-sm font-label-sm text-domain-hobbies uppercase tracking-widest">Flow State: ACTIVE</span>
+</div>
+<p class="text-on-surface-variant font-label-sm text-label-sm">Synchronization level: 94%</p>
+</div>
+</div>
+<div class="glass-card px-6 py-4 rounded-xl flex items-center gap-6">
+<div class="text-right">
+<p class="text-label-sm font-label-sm text-on-surface-variant">CURRENT SESSION</p>
+<p class="font-headline-md text-headline-md text-on-surface">02:45:12</p>
+</div>
+<div class="h-10 w-[1px] bg-white/10"></div>
+<div>
+<p class="text-label-sm font-label-sm text-on-surface-variant">MASTERY LEVEL</p>
+<p class="font-headline-md text-headline-md text-domain-hobbies">ELITE V</p>
+</div>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Hero Card: Mastery & Flow -->
+<div class="md:col-span-8 glass-card rounded-lg p-8 relative overflow-hidden flex flex-col md:flex-row items-center gap-8 domain-glow-hobbies border-domain-hobbies/20">
+<div class="flex-1 z-10">
+<span class="px-3 py-1 bg-white/10 rounded-full text-label-sm font-label-sm text-on-surface/60 mb-stack-md inline-block uppercase">Daily Feature</span>
+<h3 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-stack-md leading-tight">Mastery &amp; <span class="text-domain-hobbies">Flow</span></h3>
+<p class="text-on-surface-variant font-body-base max-w-md mb-stack-lg">Your creative momentum is peaking. Engage the matrix to manifest your latest visions into digital reality. Protocol: Unleash unrestricted imagination.</p>
+<button class="px-8 py-3 bg-domain-hobbies text-white font-bold rounded-full magenta-accent-glow hover:scale-105 transition-transform">INITIALIZE CANVAS</button>
+</div>
+<div class="w-64 h-64 md:w-80 md:h-80 relative group z-10">
+<img alt="Mascot" class="w-full h-full object-contain animate-[float_6s_ease-in-out_infinite] group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AP1WRLsmlXfhWoQM2fy2OxNX9uC5hqAjLQwjzzthDMo1eAGuWbApeGSlZkZU7kcZpoEKkD3AxyMuap8ITMh1c8-P3Rop1toA8itIdXK3hD6Zo5DsSwqJcrBXRR-xoyfAuDN9dVtlZeuWC8cCdNyCzpilMibETiIulxCLZMxWjO8l1Un8x2h0azwvLiQbATe-a2DfKMNZhSUp2uFoji6VRHmEqK2QMLrU7c6dgz_H-fwPMYiAdEfKm-wagMoyCu0m"/>
+<div class="absolute inset-0 bg-domain-hobbies/20 blur-[80px] -z-10 rounded-full opacity-50"></div>
+</div>
+<!-- Abstract patterns background -->
+<div class="absolute -right-20 -bottom-20 w-96 h-96 border-[40px] border-domain-hobbies/5 rounded-full"></div>
+</div>
+<!-- Skill Radar Section -->
+<div class="md:col-span-4 glass-card rounded-lg p-6 flex flex-col items-center justify-center">
+<h4 class="font-headline-md text-headline-md mb-stack-lg self-start">Creative Attributes</h4>
+<div class="relative w-full aspect-square max-w-[240px]">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 100 100">
+<!-- Hexagon background -->
+<polygon class="radar-line" fill="none" points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5"></polygon>
+<polygon class="radar-line opacity-30" fill="none" points="50,25 72.5,36.25 72.5,58.75 50,70 27.5,58.75 27.5,36.25"></polygon>
+<!-- Data Area -->
+<polygon class="radar-area" points="50,15 85,35 80,65 50,85 20,60 30,30"></polygon>
+</svg>
+<!-- Labels -->
+<span class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-full text-[10px] font-bold text-on-surface-variant uppercase">Technique</span>
+<span class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full text-[10px] font-bold text-on-surface-variant uppercase">Versatility</span>
+<span class="absolute top-1/4 right-0 translate-x-full text-[10px] font-bold text-on-surface-variant uppercase">Originality</span>
+<span class="absolute bottom-1/4 right-0 translate-x-full text-[10px] font-bold text-on-surface-variant uppercase">Speed</span>
+</div>
+<div class="mt-stack-lg w-full space-y-stack-sm">
+<div class="flex justify-between items-center text-label-sm font-label-sm">
+<span class="text-on-surface-variant">Overall Progress</span>
+<span class="text-domain-hobbies">88%</span>
+</div>
+<div class="w-full h-2 bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-domain-hobbies" style="width: 88%"></div>
+</div>
+</div>
+</div>
+<!-- Creative Timeline -->
+<div class="md:col-span-12 glass-card rounded-lg p-6">
+<div class="flex justify-between items-center mb-stack-lg">
+<h4 class="font-headline-md text-headline-md">Project Milestones</h4>
+<button class="text-domain-hobbies font-label-sm text-label-sm hover:underline">View Roadmap</button>
+</div>
+<div class="flex overflow-x-auto pb-4 gap-gutter snap-x">
+<!-- Timeline Items -->
+<div class="min-w-[280px] snap-start glass-card bg-white/5 p-4 rounded-xl border-l-4 border-l-domain-hobbies group">
+<div class="flex justify-between mb-stack-sm">
+<span class="text-[10px] font-bold text-domain-hobbies uppercase">Completed</span>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase">Oct 12</span>
+</div>
+<h5 class="font-headline-md text-headline-md text-sm mb-stack-md group-hover:text-domain-hobbies transition-colors">Neural Landscape 01</h5>
+<div class="h-32 rounded-lg bg-surface-container-highest overflow-hidden mb-stack-md">
+<img class="w-full h-full object-cover" data-alt="A breathtaking digital landscape painting showing glowing purple forests and floating amethyst crystals under a starry nebula sky. The style is hyper-detailed concept art with dramatic lighting and magenta atmospheric fog, matching the creative guild's aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB422aVhLcPnJm_HiUxa3gdsm_dbZ2nNPqM2rRnK9fQCQlBJk0fHVlOUA4AAqcMN1vC_TAAwkLn3NRjMFiv4vX1R1MIe02BN2n6tqjj7thj424YSAm0llzwBA-NEl6QvQ8TNG5lB0x1aGZSSxYgWPi9XqHX-FSAMSa1mcHNovDGgwwBhaEKlqVRmCdFDs0951qZQ2cahGIY36HIIX8NJfB2yUCxH2_w96b5WqZe8405JZA77ExM8El6eicgvBpblLbSXkTjbI-b7Nhi"/>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-on-surface-variant">workspace_premium</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Tier: Masterwork</span>
+</div>
+</div>
+<div class="min-w-[280px] snap-start glass-card bg-white/5 p-4 rounded-xl border-l-4 border-l-primary group">
+<div class="flex justify-between mb-stack-sm">
+<span class="text-[10px] font-bold text-primary uppercase">In Progress</span>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase">Est. Nov 05</span>
+</div>
+<h5 class="font-headline-md text-headline-md text-sm mb-stack-md group-hover:text-primary transition-colors">Voxel Archeology</h5>
+<div class="h-32 rounded-lg bg-surface-container-highest overflow-hidden mb-stack-md relative">
+<img class="w-full h-full object-cover opacity-60" data-alt="A 3D isometric scene of a digital excavation site with glowing neon tools and pixelated artifacts. The scene is dominated by deep violets and glowing cyan accents, presenting a high-tech archaeological fantasy style consistent with a futuristic UI." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnaORrNgk36RlyfGJ-us0G9go8FUE6b9hHcb-xke3cZkjdiZCOF5b55ElpXwO6iEQ2Jy57xONcK_fZj_BLHvcAVjhnKsNa3YxokkvXQO9T8uKEglbLH2a2ri_xBEkzzKLQ-SC72gyfOQo6NTXJpR2J3C2WwCic5faNwRWOSk5SvVvRXZsXwt1DQOwO7yt_SVVYYwx8tCwWBDcCfaqwZAWKVhJtoSs2J_43yYfJNK_9Sj18-oWsBgTbYtSq5SkoY53hKh4WFuLKn1fr"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="bg-primary/20 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-primary">64% Ready</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-on-surface-variant">hourglass_top</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">32.5 hours logged</span>
+</div>
+</div>
+<div class="min-w-[280px] snap-start glass-card bg-white/5 p-4 rounded-xl border-l-4 border-l-white/20 group opacity-70">
+<div class="flex justify-between mb-stack-sm">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase">Upcoming</span>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase">Q4 Target</span>
+</div>
+<h5 class="font-headline-md text-headline-md text-sm mb-stack-md group-hover:text-white transition-colors">Quantum Typography</h5>
+<div class="h-32 rounded-lg bg-surface-container-highest overflow-hidden mb-stack-md">
+<img class="w-full h-full object-cover grayscale opacity-30" data-alt="A dynamic typographic experiment with letters disintegrating into glowing light particles and data streams. The aesthetic is ultra-modern and cyber-minimalist, featuring sharp lines and vibrant magenta glows on a dark velvet background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCprBb2bMO7jQH_LWZiCf04-1xnDoD05tABX2TZBb_YBGQ8dVp0qbWdV8q2U9c5Kvv0LDJVzblMiOTmxQN32C9bu4bH31kp4P8T0F5-NZ5BSNk2boB9xS-CqRq3daXtIyxeS_r8Oq6Qs0pKG5-pGdpfnAJMpw2ZfMaFXIasy4GkAiSLZv6s8P-jWL0qvbqQsQwc17TLWNwbe1V02eIRjynD_PCmUVozy8l_fOrPISV9g-T7k5VBDl__u-wutBih5jhUJJt1QuIwWso9"/>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-on-surface-variant">lock</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Unlocks at Level 20</span>
+</div>
+</div>
+<div class="min-w-[280px] snap-start glass-card bg-white/5 p-4 rounded-xl border-l-4 border-l-domain-hobbies group">
+<div class="flex justify-between mb-stack-sm">
+<span class="text-[10px] font-bold text-domain-hobbies uppercase">Completed</span>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase">Sept 28</span>
+</div>
+<h5 class="font-headline-md text-headline-md text-sm mb-stack-md group-hover:text-domain-hobbies transition-colors">Holographic Portrait</h5>
+<div class="h-32 rounded-lg bg-surface-container-highest overflow-hidden mb-stack-md">
+<img class="w-full h-full object-cover" data-alt="A stylized 3D portrait of a character with translucent holographic skin and glowing internal circuitry. The color palette is a mix of hot pink, deep amethyst, and electric blue, designed in a high-fidelity video game character style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1yQgckj3xJMAkY0qeTOol8mde1Ot760Z2P8lEohY9zoXRcMedyn4DXG9R7nq3BaDjER8vEQsGvd1EIibEIp_pRlamJWpXRWzGCoRgYlvZ2Sf_LJ_ts_au1GUUOodrjeCZI3e86aSLLT4tW9rHwGC-mpJTpSnPk3gayF8mUfS58T-00BCyV7kyk44e6K93MSM18pRcciSsjNMOcU0k1dThWlL1I9AKlHjisCiaGBVW4EGS53mNQpaI4_HDGGfFFHl8RaUXNZ0Gd69_"/>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-on-surface-variant">workspace_premium</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Tier: Masterwork</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Gallery Section: Digital Portfolio -->
+<div class="md:col-span-12">
+<div class="flex items-center gap-4 mb-stack-lg">
+<h4 class="font-display-lg text-display-lg-mobile md:text-headline-md">Digital Portfolio</h4>
+<div class="h-[2px] flex-1 bg-gradient-to-r from-domain-hobbies/40 to-transparent"></div>
+<div class="flex gap-2">
+<button class="p-2 border border-white/10 rounded-full hover:bg-white/5 transition-all">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+<button class="px-4 py-2 border border-domain-hobbies/40 text-domain-hobbies rounded-full font-label-sm text-label-sm hover:bg-domain-hobbies/10 transition-all">EXHIBIT MODE</button>
+</div>
+</div>
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Portfolio Items -->
+<div class="aspect-square glass-card rounded-lg overflow-hidden group relative cursor-pointer border-domain-hobbies/30 border-2 shadow-[0_0_15px_rgba(255,77,255,0.1)]">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A high-end 3D abstract render of flowing metallic silk in deep pink and purple hues, reflecting sharp neon lights. The composition is elegant and futuristic, perfectly fitting the high-performance creative guild aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFWbF4D1Lg2xIVZXnCfXgUgZPVoVwUIJJ-kikEQFWw81Mj3Tns3xumxV00uNyfpxjZmc9HYldkxcJiETsXTBjsGx55j1IGWh0JGjrfbFqkacJ4MNL8hPSPjCuo3u3mDDG5i_yMy5hfwZd7ZgOuxZCWqLSf566fBi1x6J-3oLa3G271h7XhTsNy_n7yc6uP5d4I68dSH84jePP6zpGX9f5RGzuDahBWSOqih7uYriMO-GCaQSDkGD53yUJ63cuhf8WYnIJQev4yNg08"/>
+<div class="absolute inset-0 bg-gradient-to-t from-domain-hobbies/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
+<p class="font-bold text-white">Flow State Alpha</p>
+<p class="text-xs text-white/80">3D Simulation • 2024</p>
+</div>
+</div>
+<div class="aspect-square glass-card rounded-lg overflow-hidden group relative cursor-pointer border-domain-hobbies/30 border-2 shadow-[0_0_15px_rgba(255,77,255,0.1)]">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="An intricate digital illustration of a cyberpunk cityscape at night, focused on a glowing magenta billboard against a dark violet sky. The lighting is dominated by neon signs and futuristic traffic trails, creating a dense and vibrant atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGWSQnHVdPUeEk_ckWCesO8AqohkfBTII4SfgNHsFTs6isKRXbZiln7BvWpzLX9JoE9hS5Yh4Xim5wH2JUCiilV59yc5YWcVKD10vTPlFi86W9KJzV71k0lzziZPEqymsGhFhggbjTDbzfTFkRe76ngfXROTUt5LcZvVDYqbGOwa11f69AQ4bVErR8R3TiVzJ-gSn48Y05TKRLcI9MKd1iyby_aqO8WtD-tIwt3VMWV14e9aOHdT1v4vLLN5NUOSMPzoG2SvRqlT6t"/>
+<div class="absolute inset-0 bg-gradient-to-t from-domain-hobbies/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
+<p class="font-bold text-white">Neo-Tokyo Study</p>
+<p class="text-xs text-white/80">Illustration • 2024</p>
+</div>
+</div>
+<div class="aspect-square glass-card rounded-lg overflow-hidden group relative cursor-pointer border-domain-hobbies/30 border-2 shadow-[0_0_15px_rgba(255,77,255,0.1)]">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A minimalist macro photography style render of a singular glowing geometric object, suspended in a dark amethyst void. The object emits a soft magenta light that illuminates fine textures on its surface, evoking a sense of mystery and advanced technology." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpTPKUWG0LONJcsY9P_NP9j3ySd3nOfEunIx47Z3EfAZmWzS-4O7lXE9fEHChaGJxoIa2Qyz0JKs1XoBw9ahg3m8jbj2iZ02pISZZhCevAR213uVS2HtJyZ4MGqNG0tbyL_SauxZiZeoxgR5jgVyiNf0s1BWiK9gPTn9RTtqK3n2AU1LODukEyC14R3rc6WjANpn1RcIANMStAyMLVslEs5nNG0uExn2A2KyrRJnHsaXeSwGTEd5xAnxH-TldqSl5drDylgkj9KMQe"/>
+<div class="absolute inset-0 bg-gradient-to-t from-domain-hobbies/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
+<p class="font-bold text-white">Prism Origin</p>
+<p class="text-xs text-white/80">Abstract • 2023</p>
+</div>
+</div>
+<div class="aspect-square glass-card rounded-lg overflow-hidden group relative cursor-pointer border-domain-hobbies/30 border-2 shadow-[0_0_15px_rgba(255,77,255,0.1)]">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A collection of futuristic UI icons designed with heavy glassmorphism, glowing edges, and deep magenta color accents. The icons look like they belong to a premium gaming command center, with intricate details and high contrast against the dark background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0cBjFhhms-UiXyf0iPqEr-jFvMppzTxUNMLLLaNnLrw5JuuhXcI-hMZ4SzhYy1QoSgqZXYPBqxlkr06FKOOFxLVsUkRhH3odHIQlkA_G1z_ER4by60w6gQqkWPPB-AkJiHBkSUNwIa7_FFl1j_JYeBUc_gH_i60cM_DTLMDyqVHrGKjX2K7ggeOziNTl6aaZF5U0CnhVJu_XLQuElTa_RPv7gpjb8Zh3vn5AoSGp44a5yp-Gb_1H7xk5sYg4pkKDJPqfjIg2a2iwC"/>
+<div class="absolute inset-0 bg-gradient-to-t from-domain-hobbies/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
+<p class="font-bold text-white">Interface Assets v2</p>
+<p class="text-xs text-white/80">UI Design • 2024</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar (Mobile only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full h-20 bg-surface-dim/80 backdrop-blur-xl border-t border-white/10 z-50 flex items-center justify-around px-gutter">
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-label-sm uppercase tracking-tighter">Hub</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">psychology</span>
+<span class="text-[10px] font-label-sm uppercase tracking-tighter">Mind</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-domain-hobbies">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">sports_esports</span>
+<span class="text-[10px] font-label-sm uppercase tracking-tighter">Hobbies</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">payments</span>
+<span class="text-[10px] font-label-sm uppercase tracking-tighter">Money</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-label-sm uppercase tracking-tighter">Profile</span>
+</button>
+</nav>
+<!-- Floating Action Button Contextual -->
+<button class="fixed right-6 bottom-24 md:bottom-12 w-16 h-16 bg-domain-hobbies rounded-full flex items-center justify-center magenta-accent-glow text-white shadow-2xl z-40 group hover:rotate-90 transition-all duration-300">
+<span class="material-symbols-outlined text-3xl">brush</span>
+<div class="absolute right-20 bg-domain-hobbies px-4 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
+<span class="font-bold text-sm">Quick Masterpiece</span>
+</div>
+</button>
+<script>
+        // Micro-interactions for glass cards
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        // Simple animation to simulate the "Flow State" monitor changing
+        setInterval(() => {
+            const syncLevel = document.querySelector('.text-on-surface-variant.font-label-sm');
+            if (syncLevel) {
+                const current = 90 + Math.floor(Math.random() * 9);
+                syncLevel.textContent = `Synchronization level: ${current}%`;
+            }
+        }, 3000);
+    </script>
+</body></html>

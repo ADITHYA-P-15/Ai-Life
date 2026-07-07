@@ -1,0 +1,21 @@
+/* ===== Daily Reflection ===== */
+
+.daily-reflection { padding: var(--stack-md); }
+.daily-reflection__header { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 16px; }
+.daily-reflection__eyebrow { display: block; margin-bottom: 5px; color: var(--primary); font-size: 10px; font-weight: 900; letter-spacing: 0.14em; text-transform: uppercase; }
+.daily-reflection__header h3 { color: white; font-size: 20px; font-weight: 900; }
+.daily-reflection__header button { min-height: 38px; display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(207,188,255,0.2); border-radius: var(--radius); background: rgba(207,188,255,0.08); color: var(--primary); padding: 0 12px; font-size: 12px; font-weight: 900; cursor: pointer; }
+.daily-reflection__header button:disabled { opacity: 0.55; cursor: not-allowed; }
+.daily-reflection__list { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 8px; margin: 0 0 14px; padding: 0; list-style: none; }
+.daily-reflection__list li { padding: 10px 12px; border-radius: var(--radius); background: rgba(255,255,255,0.035); border: 1px solid rgba(255,255,255,0.055); color: var(--on-surface-variant); font-size: 12px; font-weight: 700; line-height: 1.45; }
+.daily-reflection__list li::before { content: '•'; margin-right: 6px; color: var(--primary); }
+.daily-reflection__pair { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.daily-reflection__pair div { padding: 12px; border-radius: var(--radius); background: rgba(255,255,255,0.035); border: 1px solid rgba(255,255,255,0.055); }
+.daily-reflection__pair span { display: block; margin-bottom: 5px; color: var(--domain-money); font-size: 10px; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; }
+.daily-reflection__pair p,
+.daily-reflection__ai { color: var(--on-surface); font-size: 13px; line-height: 1.6; }
+
+@media (max-width: 680px) {
+  .daily-reflection__header,
+  .daily-reflection__pair { grid-template-columns: 1fr; flex-direction: column; align-items: stretch; }
+}

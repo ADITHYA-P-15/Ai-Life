@@ -1,0 +1,58 @@
+/* ===== Daily Check-In Layout ===== */
+
+.daily-checkin {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  padding: var(--space-lg) 0;
+}
+
+/* Top stats row — always full width */
+.daily-checkin-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+  grid-column: 1 / -1;
+}
+
+/* Card wrapper styling */
+.daily-checkin-card {
+  min-width: 0; /* Prevent grid blowout */
+}
+
+/* ===== Desktop: 2 columns ===== */
+@media (min-width: 1025px) {
+  .daily-checkin {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Stats row spans both columns */
+  .daily-checkin-stats {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ===== Tablet tweaks ===== */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .daily-checkin {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .daily-checkin-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 640px) {
+  .daily-checkin {
+    gap: var(--space-md);
+    padding: var(--space-md) 0;
+  }
+
+  .daily-checkin-stats {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+}

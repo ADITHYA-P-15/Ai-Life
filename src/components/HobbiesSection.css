@@ -1,0 +1,409 @@
+/* ===== HobbiesSection ===== */
+
+.hobbies-section {
+  padding: var(--space-lg);
+}
+
+.hobbies-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.hobbies-header-icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  background: rgba(0, 212, 255, 0.12);
+  font-size: 1.25rem;
+}
+
+.hobbies-header-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Progress ring + total display */
+.hobbies-summary {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
+
+.hobbies-ring-wrapper {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+}
+
+.hobbies-ring-svg {
+  width: 80px;
+  height: 80px;
+  transform: rotate(-90deg);
+}
+
+.hobbies-ring-bg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.08);
+  stroke-width: 6;
+}
+
+.hobbies-ring-progress {
+  fill: none;
+  stroke: var(--color-hobbies);
+  stroke-width: 6;
+  stroke-linecap: round;
+  transition: stroke-dashoffset var(--transition-slow);
+  filter: drop-shadow(0 0 6px rgba(0, 212, 255, 0.4));
+}
+
+.hobbies-ring-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+}
+
+.hobbies-ring-value {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.hobbies-ring-unit {
+  font-size: 0.55rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.hobbies-summary-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.hobbies-total-text {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.hobbies-target-text {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.hobbies-target-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  margin-top: 2px;
+}
+
+.hobbies-target-badge--met {
+  background: rgba(0, 212, 255, 0.1);
+  color: var(--color-hobbies);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+.hobbies-target-badge--unmet {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-muted);
+  border: 1px solid var(--border-subtle);
+}
+
+/* Hobby list */
+.hobbies-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+/* Hobby row */
+.hobbies-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  transition: background var(--transition-fast);
+  position: relative;
+}
+
+.hobbies-row:hover {
+  background: var(--bg-card-hover);
+}
+
+.hobbies-row-icon {
+  font-size: 1.25rem;
+  width: 28px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.hobbies-row-name {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  min-width: 60px;
+  flex-shrink: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hobbies-row-slider-wrapper {
+  flex: 1;
+  min-width: 80px;
+  position: relative;
+}
+
+.hobbies-row-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.08);
+  outline: none;
+  cursor: pointer;
+}
+
+.hobbies-row-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--color-hobbies);
+  cursor: grab;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.35);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.hobbies-row-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 18px rgba(0, 212, 255, 0.5);
+}
+
+.hobbies-row-slider::-webkit-slider-thumb:active {
+  cursor: grabbing;
+}
+
+.hobbies-row-slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--color-hobbies);
+  cursor: grab;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.35);
+}
+
+.hobbies-row-slider::-moz-range-track {
+  height: 4px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+}
+
+.hobbies-row-value {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  min-width: 45px;
+  text-align: right;
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+}
+
+.hobbies-row-value--active {
+  color: var(--color-hobbies);
+}
+
+/* Delete button */
+.hobbies-delete-btn {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  opacity: 0;
+  transition: all var(--transition-fast);
+  padding: 0;
+}
+
+.hobbies-row:hover .hobbies-delete-btn {
+  opacity: 1;
+}
+
+.hobbies-delete-btn:hover {
+  color: var(--accent-rose);
+  background: rgba(244, 63, 94, 0.1);
+}
+
+/* Add hobby */
+.hobbies-add-section {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: center;
+}
+
+.hobbies-add-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-md);
+  border: 1px dashed var(--border-glow);
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.hobbies-add-btn:hover {
+  background: var(--bg-card-hover);
+  color: var(--color-hobbies);
+  border-color: rgba(0, 212, 255, 0.3);
+}
+
+.hobbies-add-form {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: center;
+  width: 100%;
+  animation: fadeInUp 0.25s ease both;
+}
+
+.hobbies-add-input {
+  flex: 1;
+  padding: var(--space-xs) var(--space-sm);
+  background: var(--bg-input);
+  border: 1px solid var(--border-input);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  outline: none;
+  transition: all var(--transition-fast);
+}
+
+.hobbies-add-input:focus {
+  background: var(--bg-input-focus);
+  border-color: var(--color-hobbies);
+  box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+}
+
+.hobbies-add-input::placeholder {
+  color: var(--text-muted);
+}
+
+.hobbies-add-submit {
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  background: rgba(0, 212, 255, 0.1);
+  color: var(--color-hobbies);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.hobbies-add-submit:hover {
+  background: rgba(0, 212, 255, 0.2);
+}
+
+.hobbies-add-cancel {
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+  background: transparent;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.hobbies-add-cancel:hover {
+  color: var(--text-secondary);
+  background: var(--bg-card-hover);
+}
+
+/* Empty state */
+.hobbies-empty {
+  text-align: center;
+  padding: var(--space-lg);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .hobbies-section {
+    padding: var(--space-md);
+  }
+
+  .hobbies-row {
+    padding: var(--space-xs) var(--space-sm);
+    flex-wrap: wrap;
+  }
+
+  .hobbies-row-slider-wrapper {
+    min-width: 60px;
+  }
+
+  .hobbies-ring-wrapper {
+    width: 64px;
+    height: 64px;
+  }
+
+  .hobbies-ring-svg {
+    width: 64px;
+    height: 64px;
+  }
+
+  .hobbies-ring-value {
+    font-size: 1rem;
+  }
+}

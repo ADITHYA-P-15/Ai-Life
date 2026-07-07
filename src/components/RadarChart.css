@@ -1,0 +1,105 @@
+/* RadarChart.css — LVL_UP styled pentagon radar chart */
+
+.radar-chart {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 320px;
+  width: 100%;
+}
+
+.radar-chart svg {
+  width: 100%;
+  height: auto;
+}
+
+/* Grid lines */
+.radar-grid-line {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.06);
+  stroke-width: 1;
+}
+
+.radar-grid-line--outer {
+  stroke: rgba(255, 255, 255, 0.1);
+}
+
+/* Axis spokes */
+.radar-axis-line {
+  stroke: rgba(255, 255, 255, 0.06);
+  stroke-width: 1;
+}
+
+/* Center dot */
+.radar-center-dot {
+  fill: rgba(255, 255, 255, 0.15);
+}
+
+/* Data polygon */
+.radar-data-polygon {
+  fill: url(#radarGradient);
+  stroke: var(--primary);
+  stroke-width: 2;
+  stroke-linejoin: round;
+  filter: url(#radarGlow);
+  transition: all 600ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation: radarPulseGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes radarPulseGlow {
+  0% { filter: url(#radarGlow); }
+  100% { filter: url(#radarGlowStrong); }
+}
+
+/* Data dots */
+.radar-data-dot {
+  fill: var(--primary);
+  filter: drop-shadow(0 0 4px rgba(207, 188, 255, 0.6));
+  transition: all 600ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Ghost polygon (previous day) */
+.radar-ghost-polygon {
+  fill: none;
+  stroke: rgba(207, 188, 255, 0.2);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 4;
+  transition: all 600ms ease;
+}
+
+/* Axis labels */
+.radar-label-icon {
+  font-size: 14px;
+  text-anchor: middle;
+  fill: var(--on-surface-variant);
+}
+
+.radar-label-name {
+  font-size: 10px;
+  font-weight: 600;
+  text-anchor: middle;
+  fill: var(--on-surface-variant);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.radar-label-value {
+  font-size: 11px;
+  font-weight: 700;
+  text-anchor: middle;
+}
+
+/* Domain-specific label colors */
+.radar-label--mood .radar-label-value { fill: var(--domain-mind); }
+.radar-label--sleep .radar-label-value { fill: var(--domain-sleep); }
+.radar-label--habits .radar-label-value { fill: var(--domain-habits); }
+.radar-label--money .radar-label-value { fill: var(--domain-money); }
+.radar-label--hobbies .radar-label-value { fill: var(--domain-hobbies); }
+
+@media (max-width: 768px) {
+  .radar-chart {
+    max-width: 280px;
+  }
+}
