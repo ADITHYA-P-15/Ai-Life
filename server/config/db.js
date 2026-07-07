@@ -1,39 +1,30 @@
 /**
  * db.js — PostgreSQL connection pool using the `pg` driver.
+ * 
+ * Serverless-friendly: no eager connection test.
+ * SSL enabled for Neon/cloud PostgreSQL.
  */
 
-import pg from "pg";
+import pg from 'pg';
 const { Pool } = pg;
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false,
-  },
+  ssl: process.env.DATABASE_URL?.includes('sslmode=require')
+    ? { rejectUnauthorized: false }
+    : false,
+  max: 5,                // Limit pool size for serverless
+  idleTimeoutMillis: 30000,
+  connectionTimeoutMillis: 10000,
 });
 
-// Test connection once on startup
-(async () => {
-  try {
-    const client = await pool.connect();
-    console.log("✅ Connected to Neon successfully");
-    client.release();
-  } catch (err) {
-    console.error("❌ Failed to connect to PostgreSQL");
-    console.error(err);
-  }
-})();
-
-// Log whenever a new client connects
-pool.on("connect", () => {
-  console.log("📡 Connected to PostgreSQL");
+pool.on('error', (err) => {
+  console.error('Unexpected PostgreSQL pool error:', err);
 });
 
-// Handle unexpected errors
-pool.on("error", (err) => {
-  console.error("❌ Unexpected PostgreSQL error:", err);
-});
-
+/**
+ * Execute a parameterized query.
+ */
 export function query(text, params) {
   return pool.query(text, params);
 }

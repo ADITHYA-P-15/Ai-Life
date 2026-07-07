@@ -7,7 +7,7 @@
  */
 
 import { Router } from 'express';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import { query } from '../config/db.js';
 import { authenticate, generateToken } from '../middleware/auth.js';
 
